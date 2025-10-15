@@ -1,0 +1,22 @@
+{
+  "PostToolUse": [
+    {
+      "matcher": "Edit(.claude-plugin/marketplace.json:*)",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./scripts/validate-marketplace.sh"
+        }
+      ]
+    },
+    {
+      "matcher": "Write(.claude-plugin/marketplace.json:*)",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "./scripts/validate-marketplace.sh"
+        }
+      ]
+    }
+  ]
+}

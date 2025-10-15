@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "rules": {
+      "allow": [
+        "Read(**)",
+        "Edit(.claude-plugin/marketplace.json)",
+        "Edit(docs/**)",
+        "Edit(plugins/**/README.md)",
+        "Bash(git status:*)",
+        "Bash(git diff:*)",
+        "Bash(git log:*)",
+        "Bash(./scripts/validate-marketplace.sh:*)"
+      ],
+      "ask": [
+        "Edit(.claude/settings.json)",
+        "Bash(git add:*)",
+        "Bash(git commit:*)",
+        "Bash(git push:*)"
+      ],
+      "deny": [
+        "Bash(rm -rf:*)",
+        "Bash(sudo:*)"
+      ]
+    }
+  },
+  "statusLine": {
+    "enabled": true,
+    "format": "🚀 Framework v2.0.0 | 🔒 Locked"
+  },
+  "hooks": {
+    "enabled": true,
+    "configFile": ".claude/hooks.json"
+  },
+  "mcpServers": {
+    "github": {
+      "enabled": true,
+      "configFile": ".mcp.json"
+    }
+  }
+}
