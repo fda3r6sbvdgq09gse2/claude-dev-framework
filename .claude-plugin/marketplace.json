@@ -54,6 +54,42 @@
       "requires": ["Read", "Write", "Edit", "Grep", "Glob", "WebFetch"]
     },
     {
+      "name": "documentation-agent",
+      "source": "./plugins/documentation-agent",
+      "description": "Documentation specialist for READMEs, API docs, and user guides",
+      "category": "documentation",
+      "tags": ["documentation", "readme", "api-docs", "user-guides"],
+      "version": "1.0.0",
+      "requires": ["Read", "Write", "Edit", "Grep", "Glob"]
+    },
+    {
+      "name": "devops-agent",
+      "source": "./plugins/devops-agent",
+      "description": "DevOps specialist for infrastructure, monitoring, CI/CD, and operational excellence",
+      "category": "operations",
+      "tags": ["devops", "monitoring", "ci-cd", "infrastructure", "observability"],
+      "version": "1.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    },
+    {
+      "name": "qa-automation-agent",
+      "source": "./plugins/qa-automation-agent",
+      "description": "QA automation specialist for UI testing with Playwright, visual regression, and accessibility",
+      "category": "testing",
+      "tags": ["qa", "automation", "playwright", "ui-testing", "e2e", "accessibility", "mcp"],
+      "version": "1.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "mcp__playwright"]
+    },
+    {
+      "name": "ux-product-agent",
+      "source": "./plugins/ux-product-agent",
+      "description": "UX/Product specialist for user feedback coordination and experience optimization",
+      "category": "product",
+      "tags": ["ux", "product", "user-feedback", "user-research", "jam-dev"],
+      "version": "1.0.0",
+      "requires": ["Read", "Write", "Edit", "Grep", "Glob"]
+    },
+    {
       "name": "pattern-library",
       "source": "./plugins/patterns",
       "description": "Reusable development patterns extracted from real-world projects",

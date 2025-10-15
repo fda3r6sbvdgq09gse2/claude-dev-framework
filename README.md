@@ -3,7 +3,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework)
-[![Agents](https://img.shields.io/badge/agents-8-green.svg)](https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/tree/main/plugins)
+[![Agents](https://img.shields.io/badge/agents-10-green.svg)](https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/tree/main/plugins)
 
 ## 🎯 What This Is
 
@@ -26,8 +26,9 @@ Like hiring a full development team, but AI-powered:
 | **Integration** | Sonnet 4.5 | Business logic | Workflow coordination |
 | **Testing** | Sonnet 4.5 | Quality assurance | Tests, validation |
 | **Documentation** | Sonnet 4.5 | Technical writing | READMEs, docs, guides |
-| **DevOps** | Sonnet 4.5 | CI/CD, deployment | Infrastructure |
-| **Security** | Sonnet 4.5 | Security review | Audits, compliance |
+| **DevOps** | Sonnet 4.5 | Infrastructure, monitoring | CI/CD, observability |
+| **QA Automation** | Sonnet 4.5 | UI testing, Playwright MCP | E2E tests, visual regression |
+| **UX/Product** | Sonnet 4.5 | User feedback, product | UX research, jam.dev |
 
 ### Full-Time vs Contractors
 
