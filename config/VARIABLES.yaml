@@ -61,31 +61,31 @@ agents:
   core_team:
     - id: "backend"
       name: "Backend Agent"
-      plugin: "backend-agent"
+      plugin: "agent-backend"
       default_model: "MODEL_002_SONNET"
       category: "development"
 
     - id: "frontend"
       name: "Frontend Agent"
-      plugin: "frontend-agent"
+      plugin: "agent-frontend"
       default_model: "MODEL_002_SONNET"
       category: "development"
 
     - id: "integration"
       name: "Integration Agent"
-      plugin: "integration-agent"
+      plugin: "agent-integration"
       default_model: "MODEL_002_SONNET"
       category: "development"
 
     - id: "testing"
       name: "Testing Agent"
-      plugin: "testing-agent"
+      plugin: "agent-testing"
       default_model: "MODEL_002_SONNET"
       category: "testing"
 
     - id: "ceo"
       name: "CEO Agent"
-      plugin: "ceo-agent"
+      plugin: "agent-ceo"
       default_model: "MODEL_001_OPUS"
       fallback_model: "MODEL_002_SONNET"
       category: "architecture"
@@ -93,19 +93,19 @@ agents:
   optional_team:
     - id: "documentation"
       name: "Documentation Agent"
-      plugin: "documentation-agent"
+      plugin: "agent-documentation"
       default_model: "MODEL_002_SONNET"
       category: "documentation"
 
     - id: "devops"
       name: "DevOps Agent"
-      plugin: "devops-agent"
+      plugin: "agent-devops"
       default_model: "MODEL_002_SONNET"
       category: "operations"
 
     - id: "security"
       name: "Security Agent"
-      plugin: "security-agent"
+      plugin: "agent-security"
       default_model: "MODEL_002_SONNET"
       category: "security"
 
@@ -264,15 +264,15 @@ worktrees:
 # ═══════════════════════════════════════════════════════════
 
 plugin_versions:
-  backend_agent: "2.0.0"
-  frontend_agent: "2.0.0"
-  integration_agent: "2.0.0"
-  testing_agent: "1.0.0"
-  ceo_agent: "1.0.0"
-  documentation_agent: "1.0.0"
-  devops_agent: "1.0.0"
-  security_agent: "1.0.0"
-  reward_system: "2.0.0"
+  agent_backend: "2.0.0"
+  agent_frontend: "2.0.0"
+  agent_integration: "2.0.0"
+  agent_testing: "1.0.0"
+  agent_ceo: "1.0.0"
+  agent_documentation: "1.0.0"
+  agent_devops: "1.0.0"
+  agent_security: "1.0.0"
+  utility_reward_system: "2.0.0"
   pattern_library: "1.0.0"
 
 # ═══════════════════════════════════════════════════════════

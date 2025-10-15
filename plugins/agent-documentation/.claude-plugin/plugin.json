@@ -1,5 +1,5 @@
 {
-  "name": "documentation-agent",
+  "name": "agent-documentation",
   "version": "2.0.0",
   "description": "Technical documentation specialist. Creates comprehensive docs, API references, guides, and maintains documentation quality",
   "author": "claude-multi-agent-framework",
@@ -21,7 +21,14 @@
       "name": "documentation",
       "source": "./agents/documentation.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ]
 }

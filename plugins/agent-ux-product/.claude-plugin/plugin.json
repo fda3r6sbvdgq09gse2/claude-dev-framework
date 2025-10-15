@@ -1,5 +1,5 @@
 {
-  "name": "ux-product-agent",
+  "name": "agent-ux-product",
   "version": "2.0.0",
   "description": "UX/Product specialist for user feedback coordination, product decisions, and experience optimization",
   "author": "claude-multi-agent-framework",
@@ -23,7 +23,13 @@
       "name": "ux-product",
       "source": "./agents/ux-product.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Grep",
+        "Glob"
+      ]
     }
   ],
   "dependencies": {},
@@ -37,7 +43,11 @@
       "setup": "https://jam.dev/docs/getting-started"
     },
     "analytics": {
-      "options": ["Google Analytics", "Mixpanel", "PostHog"],
+      "options": [
+        "Google Analytics",
+        "Mixpanel",
+        "PostHog"
+      ],
       "purpose": "Usage analytics for UX insights"
     }
   },

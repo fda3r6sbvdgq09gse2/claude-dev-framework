@@ -1,5 +1,5 @@
 {
-  "name": "frontend-agent",
+  "name": "agent-frontend",
   "version": "2.0.0",
   "description": "Frontend and UI development specialist. Expert in React, Tkinter, user interfaces, styling, and user experience",
   "author": "claude-multi-agent-framework",
@@ -23,7 +23,14 @@
       "name": "frontend",
       "source": "./agents/frontend.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ],
   "dependencies": {

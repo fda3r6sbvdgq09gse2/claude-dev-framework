@@ -1,5 +1,5 @@
 {
-  "name": "devops-agent",
+  "name": "agent-devops",
   "version": "1.0.0",
   "description": "DevOps specialist for infrastructure, monitoring, CI/CD, and operational excellence",
   "author": "claude-multi-agent-framework",
@@ -24,7 +24,14 @@
       "name": "devops",
       "source": "./agents/devops.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ],
   "dependencies": {

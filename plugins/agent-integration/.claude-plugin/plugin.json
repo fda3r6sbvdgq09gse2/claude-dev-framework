@@ -1,5 +1,5 @@
 {
-  "name": "integration-agent",
+  "name": "agent-integration",
   "version": "2.0.0",
   "description": "System integration and workflow specialist. Connects components, orchestrates workflows, and ensures seamless system integration",
   "author": "claude-multi-agent-framework",
@@ -21,7 +21,14 @@
       "name": "integration",
       "source": "./agents/integration.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ],
   "dependencies": {

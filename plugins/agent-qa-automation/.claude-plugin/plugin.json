@@ -1,5 +1,5 @@
 {
-  "name": "qa-automation-agent",
+  "name": "agent-qa-automation",
   "version": "2.0.0",
   "description": "QA automation specialist for UI testing with Playwright, visual regression, and accessibility",
   "author": "claude-multi-agent-framework",
@@ -24,8 +24,18 @@
       "name": "qa-automation",
       "source": "./agents/qa-automation.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"],
-      "mcpServers": ["playwright", "browser-automation"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ],
+      "mcpServers": [
+        "playwright",
+        "browser-automation"
+      ]
     }
   ],
   "dependencies": {
@@ -45,8 +55,17 @@
     }
   },
   "configuration": {
-    "test_types": ["e2e", "visual", "accessibility", "performance"],
-    "browsers": ["chromium", "firefox", "webkit"],
+    "test_types": [
+      "e2e",
+      "visual",
+      "accessibility",
+      "performance"
+    ],
+    "browsers": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
     "mobile_testing": true,
     "visual_regression": true,
     "accessibility_audits": true

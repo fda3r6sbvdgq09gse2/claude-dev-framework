@@ -1,5 +1,5 @@
 {
-  "name": "testing-agent",
+  "name": "agent-testing",
   "version": "2.0.0",
   "description": "Test automation and quality assurance specialist. Writes unit tests, integration tests, ensures coverage, and maintains code quality",
   "author": "claude-multi-agent-framework",
@@ -22,7 +22,14 @@
       "name": "testing",
       "source": "./agents/testing.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ],
   "dependencies": {

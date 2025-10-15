@@ -1,5 +1,5 @@
 {
-  "name": "backend-agent",
+  "name": "agent-backend",
   "version": "2.0.0",
   "description": "Backend development specialist for APIs, data services, file exports, and backend infrastructure",
   "author": "claude-multi-agent-framework",
@@ -22,7 +22,14 @@
       "name": "backend",
       "source": "./agents/backend.md",
       "model": "sonnet",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ],
   "dependencies": {

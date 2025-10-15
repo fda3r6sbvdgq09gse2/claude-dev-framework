@@ -1,5 +1,5 @@
 {
-  "name": "context-management-plugin",
+  "name": "command-context-management",
   "version": "1.0.0",
   "description": "Context persistence and session management for graceful shutdown and easy resume",
   "author": "ORG_NAME",

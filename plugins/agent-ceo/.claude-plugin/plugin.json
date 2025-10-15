@@ -1,5 +1,5 @@
 {
-  "name": "ceo-agent",
+  "name": "agent-ceo",
   "version": "2.0.0",
   "description": "Sprint planning and coordination specialist. Orchestrates multi-agent development, breaks down tasks, and manages sprint workflows",
   "author": "claude-multi-agent-framework",
@@ -22,7 +22,14 @@
       "name": "ceo",
       "source": "./agents/ceo.md",
       "model": "opus",
-      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash",
+        "Grep",
+        "Glob"
+      ]
     }
   ]
 }
