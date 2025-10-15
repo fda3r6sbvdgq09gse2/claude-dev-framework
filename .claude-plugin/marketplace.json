@@ -1,111 +1,166 @@
 {
-  "name": "blackford-industries-marketplace",
+  "name": "ClaudeDevFramework-Marketplace",
   "version": "2.0.0",
   "owner": {
     "name": "Blackford Industries",
     "github": "fda3r6sbvdgq09gse2",
     "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
   },
-  "description": "Blackford Industries multi-agent development framework with specialized AI workers for parallel software development",
+  "description": "Organized multi-agent development framework with component-based plugin architecture",
   "plugins": [
     {
-      "name": "backend-agent",
-      "source": "./plugins/backend-agent",
-      "description": "Backend development specialist for APIs, data services, and exports",
+      "name": "development-agents",
+      "source": "./plugins/development-agents",
+      "description": "Core development agents for backend, frontend, and integration work",
+      "version": "2.0.0",
       "category": "development",
-      "tags": ["backend", "api", "data", "exports"],
-      "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "agents": [
+        "./plugins/backend-agent/agents/backend.md",
+        "./plugins/frontend-agent/agents/frontend.md",
+        "./plugins/integration-agent/agents/integration.md",
+        "./plugins/testing-agent/agents/testing.md"
+      ],
+      "keywords": [
+        "backend",
+        "frontend",
+        "integration",
+        "testing",
+        "development"
+      ],
+      "strict": false
     },
     {
-      "name": "frontend-agent",
-      "source": "./plugins/frontend-agent",
-      "description": "Frontend development specialist for UI, UX, and user interactions",
-      "category": "development",
-      "tags": ["frontend", "ui", "ux", "pyqt"],
+      "name": "management-agents",
+      "source": "./plugins/management-agents",
+      "description": "Strategic and operational management agents including CEO and DevOps",
       "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-    },
-    {
-      "name": "integration-agent",
-      "source": "./plugins/integration-agent",
-      "description": "Integration specialist for business logic and workflow coordination",
-      "category": "development",
-      "tags": ["integration", "coordination", "business-logic"],
-      "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-    },
-    {
-      "name": "testing-agent",
-      "source": "./plugins/testing-agent",
-      "description": "Testing specialist for quality assurance and validation",
-      "category": "testing",
-      "tags": ["testing", "qa", "validation", "pytest"],
-      "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
-    },
-    {
-      "name": "ceo-agent",
-      "source": "./plugins/ceo-agent",
-      "description": "Sprint planning and coordination specialist",
       "category": "management",
-      "tags": ["strategy", "architecture", "planning", "sprint-management"],
+      "agents": [
+        "./plugins/ceo-agent/agents/ceo.md",
+        "./plugins/documentation-agent/agents/documentation.md",
+        "./plugins/devops-agent/agents/devops.md"
+      ],
+      "keywords": [
+        "management",
+        "strategy",
+        "devops",
+        "documentation"
+      ],
+      "strict": false
+    },
+    {
+      "name": "quality-agents",
+      "source": "./plugins/quality-agents",
+      "description": "Quality assurance and user experience agents",
       "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "category": "quality",
+      "agents": [
+        "./plugins/qa-automation-agent/agents/qa-automation.md",
+        "./plugins/ux-product-agent/agents/ux-product.md"
+      ],
+      "keywords": [
+        "qa",
+        "testing",
+        "ux",
+        "product",
+        "quality"
+      ],
+      "strict": false
     },
     {
-      "name": "documentation-agent",
-      "source": "./plugins/documentation-agent",
-      "description": "Documentation specialist for READMEs, API docs, and user guides",
-      "category": "documentation",
-      "tags": ["documentation", "readme", "api-docs", "user-guides"],
+      "name": "sprint-commands",
+      "source": "./plugins/sprint-commands",
+      "description": "Sprint management and workflow automation commands",
       "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Grep", "Glob"]
+      "category": "productivity",
+      "commands": [
+        "./.claude/commands/check-permission.md",
+        "./.claude/commands/role-backend.md",
+        "./.claude/commands/role-brain.md",
+        "./.claude/commands/role-ceo.md",
+        "./.claude/commands/role-frontend.md",
+        "./.claude/commands/role-integration.md",
+        "./.claude/commands/role-testing.md",
+        "./.claude/commands/supercharge-activate.md",
+        "./.claude/commands/supercharge-status.md",
+        "./.claude/commands/transform-role-backend.md",
+        "./.claude/commands/transform-role-brain.md",
+        "./.claude/commands/transform-role-ceo-complete.md",
+        "./.claude/commands/transform-role-ceo.md",
+        "./.claude/commands/transform-role-frontend.md",
+        "./.claude/commands/transform-role-superstar-founder.md"
+      ],
+      "keywords": [
+        "sprint",
+        "workflow",
+        "automation",
+        "commands"
+      ],
+      "strict": false
     },
     {
-      "name": "devops-agent",
-      "source": "./plugins/devops-agent",
-      "description": "DevOps specialist for infrastructure, monitoring, CI/CD, and operational excellence",
-      "category": "operations",
-      "tags": ["devops", "monitoring", "ci-cd", "infrastructure", "observability"],
+      "name": "workflow-hooks",
+      "source": "./plugins/workflow-hooks",
+      "description": "Automated validation, testing, and safety hooks",
       "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+      "category": "automation",
+      "hooks": {
+        "SessionStart": [
+          {
+            "matcher": "*",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "./config/hooks/session-start.sh"
+              }
+            ]
+          }
+        ],
+        "SessionEnd": [
+          {
+            "matcher": "*",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "./config/hooks/session-end.sh"
+              }
+            ]
+          }
+        ],
+        "PostToolUse": [
+          {
+            "matcher": "Bash(git commit:*)",
+            "hooks": [
+              {
+                "type": "command",
+                "command": "./config/hooks/safety-check.sh"
+              }
+            ]
+          }
+        ]
+      },
+      "keywords": [
+        "hooks",
+        "automation",
+        "validation",
+        "safety"
+      ],
+      "strict": false
     },
     {
-      "name": "qa-automation-agent",
-      "source": "./plugins/qa-automation-agent",
-      "description": "QA automation specialist for UI testing with Playwright, visual regression, and accessibility",
-      "category": "testing",
-      "tags": ["qa", "automation", "playwright", "ui-testing", "e2e", "accessibility", "mcp"],
-      "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "mcp__playwright"]
-    },
-    {
-      "name": "ux-product-agent",
-      "source": "./plugins/ux-product-agent",
-      "description": "UX/Product specialist for user feedback coordination and experience optimization",
-      "category": "product",
-      "tags": ["ux", "product", "user-feedback", "user-research", "jam-dev"],
-      "version": "2.0.0",
-      "requires": ["Read", "Write", "Edit", "Grep", "Glob"]
-    },
-    {
-      "name": "pattern-library",
-      "source": "./plugins/patterns",
-      "description": "Reusable development patterns extracted from real-world projects",
-      "category": "library",
-      "tags": ["patterns", "best-practices", "reusable"],
-      "version": "1.0.0"
-    },
-    {
-      "name": "context-management",
+      "name": "context-utilities",
       "source": "./plugins/context-management-plugin",
       "description": "Context persistence and session management for graceful shutdown and easy resume",
-      "category": "utilities",
-      "tags": ["context", "session", "resume", "persistence", "recovery"],
       "version": "1.0.0",
-      "requires": ["Bash"],
-      "commands": ["/save-session", "/resume-session"]
+      "category": "utilities",
+      "keywords": [
+        "context",
+        "session",
+        "resume",
+        "persistence",
+        "recovery"
+      ],
+      "strict": false
     }
   ],
   "metadata": {
@@ -120,18 +175,8 @@
       "git-worktrees",
       "specialized-agents"
     ],
-    "extracted_from": "book-cataloger project (Sprint 1-6B)",
-    "proven_metrics": {
-      "sprints_completed": "6B",
-      "patterns_extracted": 25,
-      "token_efficiency": "85% savings",
-      "development_speed": "4x with parallel agents"
-    },
-    "architecture": {
-      "type": "plugin-based-marketplace",
-      "agent_location": "plugins/{agent-name}/agents/{agent-name}.md",
-      "priority": "project > plugin > user",
-      "official_spec": "https://docs.claude.com/en/docs/claude-code/sub-agents"
-    }
+    "reorganized": "2025-10-15T18:53:56.590418",
+    "structure": "component-based",
+    "note": "Plugins organized by function with native Claude Code component types"
   }
 }
