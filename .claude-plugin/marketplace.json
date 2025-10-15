@@ -1,12 +1,12 @@
 {
-  "name": "claude-multi-agent-framework",
+  "name": "blackford-industries-marketplace",
   "version": "2.0.0",
   "owner": {
-    "name": "AI Development Team",
+    "name": "Blackford Industries",
     "github": "fda3r6sbvdgq09gse2",
     "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
   },
-  "description": "Multi-agent development framework with specialized AI workers for parallel software development",
+  "description": "Blackford Industries multi-agent development framework with specialized AI workers for parallel software development",
   "plugins": [
     {
       "name": "backend-agent",
