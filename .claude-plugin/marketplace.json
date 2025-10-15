@@ -96,6 +96,16 @@
       "category": "library",
       "tags": ["patterns", "best-practices", "reusable"],
       "version": "1.0.0"
+    },
+    {
+      "name": "context-management",
+      "source": "./plugins/context-management-plugin",
+      "description": "Context persistence and session management for graceful shutdown and easy resume",
+      "category": "utilities",
+      "tags": ["context", "session", "resume", "persistence", "recovery"],
+      "version": "1.0.0",
+      "requires": ["Bash"],
+      "commands": ["/save-session", "/resume-session"]
     }
   ],
   "metadata": {
