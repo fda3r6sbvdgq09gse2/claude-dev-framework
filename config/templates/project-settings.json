@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.claude.com/schema/settings.json",
+  "description": "Project-level settings template for claude-multi-agent-framework. Install to .claude/settings.json in your project",
+
+  "permissions": {
+    "allow": [
+      "Bash(npm run test)",
+      "Bash(npm run build)",
+      "Bash(pytest)",
+      "Bash(python -m pytest)",
+      "Bash(python -m unittest)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Write(.env)",
+      "Bash(rm -rf)"
+    ]
+  },
+
+  "env": {
+    "PROJECT_NAME": "your-project-name",
+    "SPRINT": "1",
+    "OTEL_RESOURCE_ATTRIBUTES": "project.name=your-project-name,team=core"
+  },
+
+  "enabledPlugins": {
+    "backend-agent@claude-multi-agent-framework": true,
+    "frontend-agent@claude-multi-agent-framework": true,
+    "integration-agent@claude-multi-agent-framework": true,
+    "testing-agent@claude-multi-agent-framework": true
+  }
+}

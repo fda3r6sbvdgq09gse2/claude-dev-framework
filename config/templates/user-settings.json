@@ -1,0 +1,53 @@
+{
+  "$schema": "https://docs.claude.com/schema/settings.json",
+  "description": "User-level settings template for claude-multi-agent-framework. Install to ~/.claude/settings.json",
+
+  "permissions": {
+    "defaultMode": "auto-accept",
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git log)",
+      "Bash(pytest)",
+      "Bash(python -m pytest)",
+      "Bash(npm test)",
+      "Bash(npm run test)",
+      "Read(~/.claude/**)"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(dd if=*)",
+      "Write(~/.ssh/**)",
+      "Write(~/.aws/**)",
+      "Read(.env)",
+      "Read(**/.env)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)"
+    ]
+  },
+
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_SERVICE_NAME": "claude-multi-agent-framework"
+  },
+
+  "extraKnownMarketplaces": {
+    "claude-multi-agent-framework": {
+      "source": "github",
+      "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+    }
+  },
+
+  "enabledPlugins": {
+    "backend-agent@claude-multi-agent-framework": true,
+    "frontend-agent@claude-multi-agent-framework": true,
+    "integration-agent@claude-multi-agent-framework": true,
+    "testing-agent@claude-multi-agent-framework": true,
+    "ceo-agent@claude-multi-agent-framework": true,
+    "documentation-agent@claude-multi-agent-framework": true,
+    "devops-agent@claude-multi-agent-framework": true
+  }
+}

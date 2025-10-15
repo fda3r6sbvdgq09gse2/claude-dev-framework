@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.claude.com/schema/settings.json",
+  "description": "Project local settings template (personal overrides). Install to .claude/settings.local.json and add to .gitignore",
+
+  "env": {
+    "ANTHROPIC_API_KEY": "your-personal-api-key-here",
+    "DEVELOPER_NAME": "your-name",
+    "PREFERRED_EDITOR": "vscode"
+  },
+
+  "enabledPlugins": {
+    "my-experimental-plugin@local": false
+  }
+}
