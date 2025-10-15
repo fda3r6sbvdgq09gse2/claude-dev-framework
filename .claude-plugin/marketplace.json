@@ -1,165 +1,143 @@
 {
-  "name": "ClaudeDevFramework-Marketplace",
-  "version": "2.0.0",
+  "name": "Claude-Dev-Framework",
+  "version": "2.0.1",
   "owner": {
     "name": "ORG_NAME",
     "github": "fda3r6sbvdgq09gse2",
     "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
-    "_note": "⚠️ Change owner.name in VARIABLES.yaml - single source of truth"
+    "_note": "\u26a0\ufe0f Change owner.name in VARIABLES.yaml - single source of truth"
   },
-  "description": "Organized multi-agent development framework with component-based plugin architecture",
+  "description": "Plugin marketplace providing multi-agent development framework with specialized agents and workflow automation",
   "plugins": [
     {
-      "name": "development-agents",
-      "source": "./plugins/development-agents",
-      "description": "Core development agents for backend, frontend, and integration work",
-      "version": "2.0.0",
+      "name": "agent-backend",
+      "source": "./plugins/agent-backend",
+      "description": "Backend development specialist",
+      "version": "2.0.1",
       "category": "development",
-      "agents": [
-        "./plugins/backend-agent/agents/backend.md",
-        "./plugins/frontend-agent/agents/frontend.md",
-        "./plugins/integration-agent/agents/integration.md",
-        "./plugins/testing-agent/agents/testing.md"
-      ],
       "keywords": [
-        "backend",
-        "frontend",
-        "integration",
-        "testing",
+        "agent",
         "development"
       ],
       "strict": false
     },
     {
-      "name": "management-agents",
-      "source": "./plugins/management-agents",
-      "description": "Strategic and operational management agents including CEO and DevOps",
-      "version": "2.0.0",
-      "category": "management",
-      "agents": [
-        "./plugins/ceo-agent/agents/ceo.md",
-        "./plugins/documentation-agent/agents/documentation.md",
-        "./plugins/devops-agent/agents/devops.md"
-      ],
+      "name": "agent-frontend",
+      "source": "./plugins/agent-frontend",
+      "description": "Frontend development specialist",
+      "version": "2.0.1",
+      "category": "development",
       "keywords": [
-        "management",
-        "strategy",
-        "devops",
-        "documentation"
+        "agent",
+        "development"
       ],
       "strict": false
     },
     {
-      "name": "quality-agents",
-      "source": "./plugins/quality-agents",
-      "description": "Quality assurance and user experience agents",
-      "version": "2.0.0",
-      "category": "quality",
-      "agents": [
-        "./plugins/qa-automation-agent/agents/qa-automation.md",
-        "./plugins/ux-product-agent/agents/ux-product.md"
-      ],
+      "name": "agent-integration",
+      "source": "./plugins/agent-integration",
+      "description": "Integration specialist",
+      "version": "2.0.1",
+      "category": "development",
       "keywords": [
-        "qa",
-        "testing",
-        "ux",
-        "product",
+        "agent",
+        "development"
+      ],
+      "strict": false
+    },
+    {
+      "name": "agent-testing",
+      "source": "./plugins/agent-testing",
+      "description": "Testing specialist",
+      "version": "2.0.1",
+      "category": "development",
+      "keywords": [
+        "agent",
+        "development"
+      ],
+      "strict": false
+    },
+    {
+      "name": "agent-ceo",
+      "source": "./plugins/agent-ceo",
+      "description": "Strategic planning and coordination",
+      "version": "2.0.1",
+      "category": "management",
+      "keywords": [
+        "agent",
+        "management"
+      ],
+      "strict": false
+    },
+    {
+      "name": "agent-documentation",
+      "source": "./plugins/agent-documentation",
+      "description": "Technical documentation specialist",
+      "version": "2.0.1",
+      "category": "management",
+      "keywords": [
+        "agent",
+        "management"
+      ],
+      "strict": false
+    },
+    {
+      "name": "agent-devops",
+      "source": "./plugins/agent-devops",
+      "description": "DevOps and CI/CD specialist",
+      "version": "2.0.1",
+      "category": "management",
+      "keywords": [
+        "agent",
+        "management"
+      ],
+      "strict": false
+    },
+    {
+      "name": "agent-qa-automation",
+      "source": "./plugins/agent-qa-automation",
+      "description": "QA automation specialist",
+      "version": "2.0.1",
+      "category": "quality",
+      "keywords": [
+        "agent",
         "quality"
       ],
       "strict": false
     },
     {
-      "name": "sprint-commands",
-      "source": "./plugins/sprint-commands",
-      "description": "Sprint management and workflow automation commands",
-      "version": "2.0.0",
-      "category": "productivity",
-      "commands": [
-        "./.claude/commands/check-permission.md",
-        "./.claude/commands/role-backend.md",
-        "./.claude/commands/role-brain.md",
-        "./.claude/commands/role-ceo.md",
-        "./.claude/commands/role-frontend.md",
-        "./.claude/commands/role-integration.md",
-        "./.claude/commands/role-testing.md",
-        "./.claude/commands/supercharge-activate.md",
-        "./.claude/commands/supercharge-status.md",
-        "./.claude/commands/transform-role-backend.md",
-        "./.claude/commands/transform-role-brain.md",
-        "./.claude/commands/transform-role-ceo-complete.md",
-        "./.claude/commands/transform-role-ceo.md",
-        "./.claude/commands/transform-role-frontend.md",
-        "./.claude/commands/transform-role-superstar-founder.md"
-      ],
+      "name": "agent-ux-product",
+      "source": "./plugins/agent-ux-product",
+      "description": "UX/Product specialist",
+      "version": "2.0.1",
+      "category": "quality",
       "keywords": [
-        "sprint",
-        "workflow",
-        "automation",
-        "commands"
+        "agent",
+        "quality"
       ],
       "strict": false
     },
     {
-      "name": "workflow-hooks",
-      "source": "./plugins/workflow-hooks",
-      "description": "Automated validation, testing, and safety hooks",
-      "version": "2.0.0",
-      "category": "automation",
-      "hooks": {
-        "SessionStart": [
-          {
-            "matcher": "*",
-            "hooks": [
-              {
-                "type": "command",
-                "command": "./config/hooks/session-start.sh"
-              }
-            ]
-          }
-        ],
-        "SessionEnd": [
-          {
-            "matcher": "*",
-            "hooks": [
-              {
-                "type": "command",
-                "command": "./config/hooks/session-end.sh"
-              }
-            ]
-          }
-        ],
-        "PostToolUse": [
-          {
-            "matcher": "Bash(git commit:*)",
-            "hooks": [
-              {
-                "type": "command",
-                "command": "./config/hooks/safety-check.sh"
-              }
-            ]
-          }
-        ]
-      },
-      "keywords": [
-        "hooks",
-        "automation",
-        "validation",
-        "safety"
-      ],
-      "strict": false
-    },
-    {
-      "name": "context-utilities",
-      "source": "./plugins/context-management-plugin",
-      "description": "Context persistence and session management for graceful shutdown and easy resume",
-      "version": "1.0.0",
+      "name": "command-context-management",
+      "source": "./plugins/command-context-management",
+      "description": "Context persistence and session management",
+      "version": "2.0.1",
       "category": "utilities",
       "keywords": [
-        "context",
-        "session",
-        "resume",
-        "persistence",
-        "recovery"
+        "command",
+        "utilities"
+      ],
+      "strict": false
+    },
+    {
+      "name": "utility-reward-system",
+      "source": "./plugins/utility-reward-system",
+      "description": "Achievement tracking and rewards",
+      "version": "2.0.1",
+      "category": "utilities",
+      "keywords": [
+        "utility",
+        "utilities"
       ],
       "strict": false
     }
@@ -176,8 +154,9 @@
       "git-worktrees",
       "specialized-agents"
     ],
-    "reorganized": "2025-10-15T18:53:56.590418",
-    "structure": "component-based",
-    "note": "Plugins organized by function with native Claude Code component types"
+    "reorganized": "2025-10-15T20:44:53.603332",
+    "structure": "individual-plugins",
+    "note": "Each agent plugin is independently loadable with its own configuration",
+    "generated_from": "VARIABLES.yaml - DO NOT EDIT marketplace.json DIRECTLY"
   }
 }

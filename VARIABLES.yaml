@@ -42,7 +42,7 @@ owner:
 
 marketplace:
   # Marketplace identifier (should match marketplace.json)
-  id: "ClaudeDevFramework-Marketplace"
+  id: "Claude-Dev-Framework"
 
   # GitHub marketplace source
   github_source: "fda3r6sbvdgq09gse2/claude-dev-framework"

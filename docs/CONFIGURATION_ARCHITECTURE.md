@@ -112,9 +112,9 @@ your-project/
     ]
   },
   "enabledPlugins": {
-    "backend-agent@claude-multi-agent-framework": true,
-    "frontend-agent@claude-multi-agent-framework": true,
-    "testing-agent@claude-multi-agent-framework": true
+    "agent-backend@Claude-Dev-Framework": true,
+    "agent-frontend@Claude-Dev-Framework": true,
+    "agent-testing@Claude-Dev-Framework": true
   },
   "extraKnownMarketplaces": {
     "claude-multi-agent-framework": {
@@ -164,11 +164,11 @@ your-project/
     "PREFERRED_EDITOR": "vscode"
   },
   "enabledPlugins": {
-    "backend-agent@claude-multi-agent-framework": true,
-    "frontend-agent@claude-multi-agent-framework": true,
-    "integration-agent@claude-multi-agent-framework": true,
-    "testing-agent@claude-multi-agent-framework": true,
-    "ceo-agent@claude-multi-agent-framework": true
+    "agent-backend@Claude-Dev-Framework": true,
+    "agent-frontend@Claude-Dev-Framework": true,
+    "agent-integration@Claude-Dev-Framework": true,
+    "agent-testing@Claude-Dev-Framework": true,
+    "agent-ceo@Claude-Dev-Framework": true
   },
   "extraKnownMarketplaces": {
     "claude-multi-agent-framework": {
@@ -396,9 +396,9 @@ See `config/permissions/` for detailed agent permission files.
 ```json
 {
   "enabledPlugins": {
-    "backend-agent@claude-multi-agent-framework": true,
-    "frontend-agent@claude-multi-agent-framework": true,
-    "ceo-agent@claude-multi-agent-framework": true
+    "agent-backend@Claude-Dev-Framework": true,
+    "agent-frontend@Claude-Dev-Framework": true,
+    "agent-ceo@Claude-Dev-Framework": true
   }
 }
 ```
@@ -433,7 +433,7 @@ cp ~/dev/claude-dev-framework/config/templates/project-marketplace.json .claude-
 ```json
 {
   "extraKnownMarketplaces": {
-    "ClaudeDevFramework-Marketplace": {
+    "Claude-Dev-Framework": {
       "source": {
         "source": "github",
         "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
@@ -531,7 +531,7 @@ cat > ~/.claude/settings.json << 'EOF'
     "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317"
   },
   "extraKnownMarketplaces": {
-    "ClaudeDevFramework-Marketplace": {
+    "Claude-Dev-Framework": {
       "source": {
         "source": "github",
         "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
@@ -539,11 +539,12 @@ cat > ~/.claude/settings.json << 'EOF'
     }
   },
   "enabledPlugins": {
-    "backend-agent@ClaudeDevFramework-Marketplace": true,
-    "frontend-agent@ClaudeDevFramework-Marketplace": true,
-    "ceo-agent@ClaudeDevFramework-Marketplace": true,
-    "integration-agent@ClaudeDevFramework-Marketplace": true,
-    "testing-agent@ClaudeDevFramework-Marketplace": true
+    "development-agents@Claude-Dev-Framework": true,
+    "management-agents@Claude-Dev-Framework": true,
+    "quality-agents@Claude-Dev-Framework": true,
+    "sprint-commands@Claude-Dev-Framework": true,
+    "workflow-hooks@Claude-Dev-Framework": true,
+    "context-utilities@Claude-Dev-Framework": true
   }
 }
 EOF

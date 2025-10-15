@@ -24,7 +24,7 @@
   },
 
   "extraKnownMarketplaces": {
-    "ClaudeDevFramework-Marketplace": {
+    "Claude-Dev-Framework": {
       "source": {
         "source": "github",
         "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
@@ -39,9 +39,11 @@
   },
 
   "enabledPlugins": {
-    "backend-agent@ClaudeDevFramework-Marketplace": true,
-    "frontend-agent@ClaudeDevFramework-Marketplace": true,
-    "integration-agent@ClaudeDevFramework-Marketplace": true,
-    "testing-agent@ClaudeDevFramework-Marketplace": true
+    "development-agents@Claude-Dev-Framework": true,
+    "management-agents@Claude-Dev-Framework": true,
+    "quality-agents@Claude-Dev-Framework": true,
+    "sprint-commands@Claude-Dev-Framework": true,
+    "workflow-hooks@Claude-Dev-Framework": true,
+    "context-utilities@Claude-Dev-Framework": true
   }
 }

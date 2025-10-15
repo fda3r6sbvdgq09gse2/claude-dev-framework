@@ -12,7 +12,7 @@ If you're using this framework in your project, add it to your `.claude/settings
 ```json
 {
   "extraKnownMarketplaces": {
-    "ClaudeDevFramework-Marketplace": {
+    "Claude-Dev-Framework": {
       "source": {
         "source": "github",
         "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
@@ -25,8 +25,8 @@ If you're using this framework in your project, add it to your `.claude/settings
 Then install plugins:
 ```bash
 /plugin marketplace add fda3r6sbvdgq09gse2/claude-dev-framework
-/plugin install development-agents@ClaudeDevFramework-Marketplace
-/plugin install management-agents@ClaudeDevFramework-Marketplace
+/plugin install development-agents@Claude-Dev-Framework
+/plugin install management-agents@Claude-Dev-Framework
 ```
 
 ### Customize for Your Organization
@@ -298,7 +298,7 @@ The framework uses GitHub's official MCP server for automation.
 4. **Test installation**:
    ```bash
    /plugin marketplace refresh
-   /plugin install plugin-name@ClaudeDevFramework-Marketplace
+   /plugin install plugin-name@Claude-Dev-Framework
    ```
 
 ### Validation Script

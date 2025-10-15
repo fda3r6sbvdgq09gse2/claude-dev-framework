@@ -156,7 +156,7 @@ def create_organized_marketplace(source_marketplace: dict, base_dir: Path) -> di
 
     # Create new marketplace structure
     return {
-        "name": "ClaudeDevFramework-Marketplace",
+        "name": "Claude-Dev-Framework",
         "version": source_marketplace['version'],
         "owner": source_marketplace['owner'],
         "description": "Organized multi-agent development framework with component-based plugin architecture",
