@@ -1,0 +1,321 @@
+# Human Stakeholder & Device Registry
+# Version: 1.0.0
+# Last Updated: 2025-01-15
+#
+# IMPORTANT: This tracks humans and devices in the organization
+# Single source of truth for access control, costs, and accountability
+
+# ═══════════════════════════════════════════════════════════
+# ORGANIZATION
+# ═══════════════════════════════════════════════════════════
+
+organization:
+  internal_name: "Blackford Industries"  # Not public-facing
+  public_name: "TBD"  # To be determined
+  type: "startup"
+  founded: "2024"
+  stage: "pre-seed"
+
+# ═══════════════════════════════════════════════════════════
+# HUMAN STAKEHOLDERS
+# ═══════════════════════════════════════════════════════════
+
+humans:
+  - id: "creator_001"
+    name: "[Redacted - Privacy]"  # Not stored in repo
+    alias: "Creator"
+    role: "Founder & Chief Architect"
+    access_level: "admin"
+    permissions: ["all"]
+
+    devices:
+      - id: "device_macbook_001"
+        type: "MacBook Pro"
+        os: "macOS"
+        hostname: "[Stored in env var DEVICE_HOSTNAME]"
+        primary: true
+        registered: "2024-12"
+
+    github_accounts:
+      - username: "fda3r6sbvdgq09gse2"
+        account_type: "personal"
+        primary: true
+
+    claude_accounts:
+      - account_id: "Claude_Account_0001"  # Reference from MODEL_CAPABILITIES_REGISTRY
+        plan: "Claude Max ($200/month)"
+        primary: true
+
+    cost_tracking:
+      allocated_monthly_budget: 200.00  # USD
+      actual_spend_january: 122.00
+      budget_utilization: 61%
+
+    working_hours:
+      timezone: "UTC-8"  # Pacific Time
+      typical_schedule: "flexible"
+
+  # Future humans (template)
+  # - id: "human_002"
+  #   name: "[Future team member]"
+  #   alias: "Backend Lead"
+  #   role: "Senior Backend Engineer"
+  #   access_level: "developer"
+  #   permissions: ["read", "write_code", "no_admin"]
+
+# ═══════════════════════════════════════════════════════════
+# DEVICE REGISTRY
+# ═══════════════════════════════════════════════════════════
+
+devices:
+  - id: "device_macbook_001"
+    owner: "creator_001"
+    type: "laptop"
+    platform: "macOS"
+    installed_agents:
+      - backend
+      - frontend
+      - integration
+      - testing
+      - ceo
+      - documentation
+    last_active: "2025-01-15"
+    status: "active"
+
+  # Future devices (template)
+  # - id: "device_workstation_002"
+  #   owner: "human_002"
+  #   type: "desktop"
+  #   platform: "linux"
+
+# ═══════════════════════════════════════════════════════════
+# ACCESS CONTROL
+# ═══════════════════════════════════════════════════════════
+
+access_levels:
+  admin:
+    description: "Full access to everything"
+    permissions:
+      - create_agents
+      - modify_framework
+      - access_all_projects
+      - view_all_metrics
+      - manage_costs
+      - manage_team
+
+  developer:
+    description: "Code and develop"
+    permissions:
+      - use_agents
+      - read_framework
+      - access_assigned_projects
+      - view_own_metrics
+      - no_admin
+
+  viewer:
+    description: "Read-only access"
+    permissions:
+      - view_dashboards
+      - view_public_docs
+      - no_modifications
+
+  contractor:
+    description: "Temporary project access"
+    permissions:
+      - access_specific_project
+      - use_assigned_agents
+      - time_limited
+      - no_framework_access
+
+# ═══════════════════════════════════════════════════════════
+# COST ALLOCATION
+# ═══════════════════════════════════════════════════════════
+
+cost_allocation:
+  organization_total_monthly: 200.00  # Current
+
+  by_human:
+    creator_001: 200.00  # 100% (only person currently)
+    # future: Split when more humans added
+
+  by_project:
+    book_cataloger: 122.00  # Actual Jan spend
+    # future projects: TBD
+
+  by_agent:
+    backend: 42.50
+    frontend: 38.20
+    integration: 25.80
+    testing: 10.50
+    ceo: 5.00
+
+# ═══════════════════════════════════════════════════════════
+# TEAM GROWTH PLANNING
+# ═══════════════════════════════════════════════════════════
+
+growth_scenarios:
+  scenario_2_humans:
+    timeline: "Q2 2025"
+    roles: ["Creator", "Backend Engineer"]
+    devices: 2
+    monthly_cost_estimate: 350.00
+    agent_distribution:
+      creator_001: ["ceo", "integration", "documentation"]
+      human_002: ["backend", "frontend", "testing"]
+
+  scenario_5_humans:
+    timeline: "Q4 2025"
+    roles: ["Creator", "Backend", "Frontend", "DevOps", "Product"]
+    devices: 6  # 1-2 per person
+    monthly_cost_estimate: 800.00
+    agent_distribution:
+      distributed_evenly: true
+      shared_ceo: true
+
+  scenario_10_humans:
+    timeline: "2026"
+    roles: ["Leadership", "Engineering Team", "Product Team"]
+    devices: 15
+    monthly_cost_estimate: 2000.00
+    claude_accounts: 3  # Team accounts
+    agent_deployment: "centralized_with_auth"
+
+# ═══════════════════════════════════════════════════════════
+# DEVICE MANAGEMENT
+# ═══════════════════════════════════════════════════════════
+
+device_policies:
+  agent_installation:
+    - Each device gets personal copy of global agents
+    - Location: ~/.claude/agents (per device)
+    - Sync: Manual or via config management
+    - Updates: Pull from marketplace
+
+  credentials:
+    - Stored in macOS Keychain (per device)
+    - Never in git repositories
+    - Rotated quarterly
+    - Device-specific API keys
+
+  monitoring:
+    - Per-device metrics collected
+    - Aggregated by human
+    - Compliance: GDPR-ready
+    - Retention: 90 days detailed, 2 years summary
+
+# ═══════════════════════════════════════════════════════════
+# PRIVACY & SECURITY
+# ═══════════════════════════════════════════════════════════
+
+privacy:
+  personal_information:
+    storage: "Environment variables only"
+    git_repo: "NO personal names/emails"
+    telemetry: "Anonymized IDs only"
+
+  data_classification:
+    public: ["Framework code", "Patterns", "Docs"]
+    internal: ["Cost data", "Agent metrics"]
+    confidential: ["Human names", "Client data"]
+    secret: ["API keys", "Credentials"]
+
+# ═══════════════════════════════════════════════════════════
+# USAGE PATTERNS
+# ═══════════════════════════════════════════════════════════
+
+usage_tracking:
+  by_human:
+    creator_001:
+      january_2025:
+        hours_active: 34.2
+        sessions: 18
+        cost: 122.00
+        efficiency: "excellent"
+        primary_focus: "book-cataloger"
+
+  by_device:
+    device_macbook_001:
+      january_2025:
+        sessions: 18
+        agents_used: ["backend", "frontend", "ceo", "integration", "testing"]
+        most_used_agent: "backend"
+        total_tokens: 387000
+
+# ═══════════════════════════════════════════════════════════
+# NOTIFICATIONS
+# ═══════════════════════════════════════════════════════════
+
+notifications:
+  creator_001:
+    email: "[Stored in env: CREATOR_EMAIL]"
+    slack: "[Optional]"
+
+    alerts:
+      - budget_80_percent: email
+      - budget_100_percent: email + sms
+      - agent_error: email
+      - weekly_report: email
+
+# ═══════════════════════════════════════════════════════════
+# AUDIT LOG
+# ═══════════════════════════════════════════════════════════
+
+audit:
+  retention: "2 years"
+  events_tracked:
+    - human_login
+    - device_registration
+    - agent_usage
+    - cost_accrual
+    - permission_changes
+    - framework_modifications
+
+  compliance:
+    - GDPR_ready: true
+    - SOC2_path: "planned_q3_2025"
+    - data_residency: "US"
+
+# ═══════════════════════════════════════════════════════════
+# HOW TO USE THIS FILE
+# ═══════════════════════════════════════════════════════════
+
+usage_instructions:
+  for_single_human_single_device:
+    - Default configuration works
+    - Update creator_001 costs monthly
+    - Track device_macbook_001 usage
+
+  for_adding_second_human:
+    - Copy human template
+    - Assign unique ID (human_002)
+    - Register their devices
+    - Set access level
+    - Allocate cost budget
+    - Update agent distribution
+
+  for_adding_device:
+    - Add to devices section
+    - Link to owner (human ID)
+    - Install agents
+    - Configure credentials
+    - Start monitoring
+
+  for_cost_tracking:
+    - Update cost_allocation monthly
+    - Review by_human, by_project, by_agent
+    - Adjust budgets as needed
+    - Generate invoices if applicable
+
+# ═══════════════════════════════════════════════════════════
+# REFERENCES TO OTHER CONFIGS
+# ═══════════════════════════════════════════════════════════
+
+related_configs:
+  variables: "config/VARIABLES.yaml"
+  permissions: "config/permissions/*.json"
+  models: "docs/MODEL_CAPABILITIES_REGISTRY.md"
+  monitoring: "monitoring/MONITORING_SYSTEM.md"
+
+# ═══════════════════════════════════════════════════════════
+# END OF STAKEHOLDER REGISTRY
+# ═══════════════════════════════════════════════════════════
