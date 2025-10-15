@@ -27,6 +27,12 @@
     ]
   },
 
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.py",
+    "padding": 0
+  },
+
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317",
@@ -48,6 +54,8 @@
     "testing-agent@claude-multi-agent-framework": true,
     "ceo-agent@claude-multi-agent-framework": true,
     "documentation-agent@claude-multi-agent-framework": true,
-    "devops-agent@claude-multi-agent-framework": true
+    "devops-agent@claude-multi-agent-framework": true,
+    "qa-automation-agent@claude-multi-agent-framework": true,
+    "ux-product-agent@claude-multi-agent-framework": true
   }
 }
