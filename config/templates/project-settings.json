@@ -23,10 +23,25 @@
     "OTEL_RESOURCE_ATTRIBUTES": "project.name=your-project-name,team=core"
   },
 
+  "extraKnownMarketplaces": {
+    "ClaudeDevFramework-Marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+      }
+    },
+    "YourProject-Marketplace": {
+      "source": {
+        "source": "file",
+        "path": "./.claude-plugin/project-marketplace.json"
+      }
+    }
+  },
+
   "enabledPlugins": {
-    "backend-agent@claude-multi-agent-framework": true,
-    "frontend-agent@claude-multi-agent-framework": true,
-    "integration-agent@claude-multi-agent-framework": true,
-    "testing-agent@claude-multi-agent-framework": true
+    "backend-agent@ClaudeDevFramework-Marketplace": true,
+    "frontend-agent@ClaudeDevFramework-Marketplace": true,
+    "integration-agent@ClaudeDevFramework-Marketplace": true,
+    "testing-agent@ClaudeDevFramework-Marketplace": true
   }
 }

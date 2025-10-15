@@ -415,6 +415,71 @@ See `config/permissions/` for detailed agent permission files.
 }
 ```
 
+### Project-Specific Marketplaces
+**Location**: `.claude-plugin/project-marketplace.json` *(in project)*
+**Referenced in**: `.claude/settings.json`
+
+**Purpose**: Create project-specific plugins and patterns that extend the framework for domain-specific needs.
+
+**Setup:**
+
+1. Create the marketplace file:
+```bash
+mkdir -p .claude-plugin
+cp ~/dev/claude-dev-framework/config/templates/project-marketplace.json .claude-plugin/project-marketplace.json
+```
+
+2. Reference it in `.claude/settings.json`:
+```json
+{
+  "extraKnownMarketplaces": {
+    "ClaudeDevFramework-Marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+      }
+    },
+    "YourProject-Marketplace": {
+      "source": {
+        "source": "file",
+        "path": "./.claude-plugin/project-marketplace.json"
+      }
+    }
+  }
+}
+```
+
+**Example project marketplace:**
+```json
+{
+  "name": "BookCataloger-Marketplace",
+  "version": "1.0.0",
+  "description": "Project-specific agents for book cataloging",
+  "plugins": [
+    {
+      "name": "isbn-validator-agent",
+      "source": "./.claude/agents/isbn-validator.md",
+      "description": "Domain expert for ISBN validation",
+      "category": "project-specific",
+      "version": "1.0.0",
+      "extraction_candidate": true,
+      "rationale": "Generic enough for reuse in library projects"
+    }
+  ]
+}
+```
+
+**When to create project plugins:**
+- Domain-specific agents (e.g., ISBN validator, medical terminology expert)
+- Project-specific workflows (e.g., custom deployment scripts)
+- Temporary experimental patterns (before promoting to framework)
+
+**Extraction workflow:**
+1. Mark `extraction_candidate: true` for reusable patterns
+2. Document `rationale` for every plugin
+3. Review at end of sprint
+4. Promote mature patterns to framework marketplace
+
 ---
 
 ## 📁 Complete Directory Structure
@@ -434,12 +499,15 @@ See `config/permissions/` for detailed agent permission files.
 # Project-Level (Each Project)
 your-project/
 ├── CLAUDE.md                  # Project instructions (team-shared)
-└── .claude/
-    ├── settings.json          # Project settings (in git)
-    ├── settings.local.json    # Personal overrides (gitignored)
-    ├── CLAUDE.md              # Alternative location
-    └── agents/                # Project contractors (optional)
-        └── ml-specialist.md
+├── .claude/
+│   ├── settings.json          # Project settings (in git)
+│   ├── settings.local.json    # Personal overrides (gitignored)
+│   ├── CLAUDE.md              # Alternative location
+│   └── agents/                # Project contractors (optional)
+│       └── ml-specialist.md
+└── .claude-plugin/            # Project-specific marketplace
+    ├── project-marketplace.json  # Project marketplace definition
+    └── plugin.json            # Plugin metadata (if project is a plugin)
 ```
 
 ---
@@ -463,17 +531,19 @@ cat > ~/.claude/settings.json << 'EOF'
     "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317"
   },
   "extraKnownMarketplaces": {
-    "claude-multi-agent-framework": {
-      "source": "github",
-      "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+    "ClaudeDevFramework-Marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+      }
     }
   },
   "enabledPlugins": {
-    "backend-agent@claude-multi-agent-framework": true,
-    "frontend-agent@claude-multi-agent-framework": true,
-    "ceo-agent@claude-multi-agent-framework": true,
-    "integration-agent@claude-multi-agent-framework": true,
-    "testing-agent@claude-multi-agent-framework": true
+    "backend-agent@ClaudeDevFramework-Marketplace": true,
+    "frontend-agent@ClaudeDevFramework-Marketplace": true,
+    "ceo-agent@ClaudeDevFramework-Marketplace": true,
+    "integration-agent@ClaudeDevFramework-Marketplace": true,
+    "testing-agent@ClaudeDevFramework-Marketplace": true
   }
 }
 EOF
@@ -502,22 +572,21 @@ cp claude-dev-framework/plugins/*/agent.md ~/.claude/agents/
 cd your-project
 claude init
 
-# 2. Create project settings
-cat > .claude/settings.json << 'EOF'
-{
-  "permissions": {
-    "allow": [
-      "Bash(npm run test)",
-      "Bash(pytest)"
-    ]
-  },
-  "env": {
-    "PROJECT_NAME": "your-project"
-  }
-}
-EOF
+# 2. Create project settings (copy from template)
+mkdir -p .claude
+cp ~/dev/claude-dev-framework/config/templates/project-settings.json .claude/settings.json
 
-# 3. Create project memory
+# 3. Create project-specific marketplace
+mkdir -p .claude-plugin
+cp ~/dev/claude-dev-framework/config/templates/project-marketplace.json .claude-plugin/project-marketplace.json
+
+# 4. Customize project settings
+# Update PROJECT_NAME, marketplace name, etc.
+sed -i '' 's/your-project-name/my-actual-project/g' .claude/settings.json
+sed -i '' 's/YourProject-Marketplace/MyProject-Marketplace/g' .claude/settings.json
+sed -i '' 's/YourProject-Marketplace/MyProject-Marketplace/g' .claude-plugin/project-marketplace.json
+
+# 5. Create project memory
 cat > CLAUDE.md << 'EOF'
 # Project: Your Project
 
@@ -528,8 +597,12 @@ cat > CLAUDE.md << 'EOF'
 @~/.claude/CLAUDE.md
 EOF
 
-# 4. Add to .gitignore
+# 6. Add to .gitignore
 echo ".claude/settings.local.json" >> .gitignore
+
+# 7. Commit project configuration
+git add .claude/ .claude-plugin/ CLAUDE.md .gitignore
+git commit -m "Initialize Claude framework configuration"
 ```
 
 ---

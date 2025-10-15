@@ -41,21 +41,23 @@
   },
 
   "extraKnownMarketplaces": {
-    "claude-multi-agent-framework": {
-      "source": "github",
-      "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+    "ClaudeDevFramework-Marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "fda3r6sbvdgq09gse2/claude-dev-framework"
+      }
     }
   },
 
   "enabledPlugins": {
-    "backend-agent@claude-multi-agent-framework": true,
-    "frontend-agent@claude-multi-agent-framework": true,
-    "integration-agent@claude-multi-agent-framework": true,
-    "testing-agent@claude-multi-agent-framework": true,
-    "ceo-agent@claude-multi-agent-framework": true,
-    "documentation-agent@claude-multi-agent-framework": true,
-    "devops-agent@claude-multi-agent-framework": true,
-    "qa-automation-agent@claude-multi-agent-framework": true,
-    "ux-product-agent@claude-multi-agent-framework": true
+    "backend-agent@ClaudeDevFramework-Marketplace": true,
+    "frontend-agent@ClaudeDevFramework-Marketplace": true,
+    "integration-agent@ClaudeDevFramework-Marketplace": true,
+    "testing-agent@ClaudeDevFramework-Marketplace": true,
+    "ceo-agent@ClaudeDevFramework-Marketplace": true,
+    "documentation-agent@ClaudeDevFramework-Marketplace": true,
+    "devops-agent@ClaudeDevFramework-Marketplace": true,
+    "qa-automation-agent@ClaudeDevFramework-Marketplace": true,
+    "ux-product-agent@ClaudeDevFramework-Marketplace": true
   }
 }

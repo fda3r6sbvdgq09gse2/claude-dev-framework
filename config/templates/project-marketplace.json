@@ -1,0 +1,52 @@
+{
+  "$schema": "https://docs.claude.com/schema/marketplace.json",
+  "name": "YourProject-Marketplace",
+  "version": "1.0.0",
+  "description": "Project-specific plugins and extensions for [Your Project Name]",
+
+  "owner": {
+    "name": "Your Name or Team",
+    "email": "team@yourproject.com",
+    "repository": "https://github.com/yourorg/yourproject"
+  },
+
+  "project_info": {
+    "name": "yourproject",
+    "framework_version": "2.0.0",
+    "framework_locked": true,
+    "framework_location": "../claude-dev-framework",
+    "started": "2025-01-15",
+    "phase": "active_development"
+  },
+
+  "plugins": [
+    {
+      "name": "example-project-agent",
+      "source": "./.claude/agents/example-agent.md",
+      "description": "Example project-specific agent",
+      "category": "project-specific",
+      "version": "1.0.0",
+      "extraction_candidate": false,
+      "rationale": "Project-specific domain logic that won't be useful in other projects",
+      "added": "2025-01-15"
+    }
+  ],
+
+  "patterns": [],
+
+  "framework_improvements": [],
+
+  "metadata": {
+    "extraction_candidates_count": 0,
+    "project_specific_count": 1,
+    "framework_improvements_count": 0,
+    "next_extraction_review": "end_of_current_sprint"
+  },
+
+  "notes": [
+    "This file tracks project-specific additions separate from framework",
+    "Mark extraction_candidate: true for patterns that should go to framework",
+    "Document rationale for every addition to guide future extraction",
+    "Framework (v2.0.0) is immutable - track improvements here for later merge"
+  ]
+}
