@@ -1,0 +1,32 @@
+{
+  "name": "frontend-agent",
+  "version": "2.0.0",
+  "description": "Frontend and UI development specialist. Expert in React, Tkinter, user interfaces, styling, and user experience",
+  "author": "claude-multi-agent-framework",
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  },
+  "license": "MIT",
+  "keywords": [
+    "frontend",
+    "ui",
+    "react",
+    "tkinter",
+    "user-experience",
+    "styling",
+    "components"
+  ],
+  "agents": [
+    {
+      "name": "frontend",
+      "source": "./agents/frontend.md",
+      "model": "sonnet",
+      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    }
+  ],
+  "dependencies": {
+    "python": "^3.11.0"
+  }
+}

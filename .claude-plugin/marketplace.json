@@ -1,6 +1,6 @@
 {
   "name": "claude-multi-agent-framework",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "owner": {
     "name": "AI Development Team",
     "github": "fda3r6sbvdgq09gse2",
@@ -41,17 +41,17 @@
       "description": "Testing specialist for quality assurance and validation",
       "category": "testing",
       "tags": ["testing", "qa", "validation", "pytest"],
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
     },
     {
       "name": "ceo-agent",
       "source": "./plugins/ceo-agent",
-      "description": "Strategic architect for framework vision and architecture decisions",
-      "category": "architecture",
-      "tags": ["strategy", "architecture", "planning", "patterns"],
-      "version": "1.0.0",
-      "requires": ["Read", "Write", "Edit", "Grep", "Glob", "WebFetch"]
+      "description": "Sprint planning and coordination specialist",
+      "category": "management",
+      "tags": ["strategy", "architecture", "planning", "sprint-management"],
+      "version": "2.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
     },
     {
       "name": "documentation-agent",
@@ -59,7 +59,7 @@
       "description": "Documentation specialist for READMEs, API docs, and user guides",
       "category": "documentation",
       "tags": ["documentation", "readme", "api-docs", "user-guides"],
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": ["Read", "Write", "Edit", "Grep", "Glob"]
     },
     {
@@ -68,7 +68,7 @@
       "description": "DevOps specialist for infrastructure, monitoring, CI/CD, and operational excellence",
       "category": "operations",
       "tags": ["devops", "monitoring", "ci-cd", "infrastructure", "observability"],
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
     },
     {
@@ -77,7 +77,7 @@
       "description": "QA automation specialist for UI testing with Playwright, visual regression, and accessibility",
       "category": "testing",
       "tags": ["qa", "automation", "playwright", "ui-testing", "e2e", "accessibility", "mcp"],
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob", "mcp__playwright"]
     },
     {
@@ -86,7 +86,7 @@
       "description": "UX/Product specialist for user feedback coordination and experience optimization",
       "category": "product",
       "tags": ["ux", "product", "user-feedback", "user-research", "jam-dev"],
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": ["Read", "Write", "Edit", "Grep", "Glob"]
     },
     {
@@ -110,12 +110,18 @@
       "git-worktrees",
       "specialized-agents"
     ],
-    "extracted_from": "book-cataloger project (Sprint 1-6A)",
+    "extracted_from": "book-cataloger project (Sprint 1-6B)",
     "proven_metrics": {
-      "sprints_completed": "6A",
-      "patterns_extracted": 23,
-      "token_efficiency": "80% savings",
+      "sprints_completed": "6B",
+      "patterns_extracted": 25,
+      "token_efficiency": "85% savings",
       "development_speed": "4x with parallel agents"
+    },
+    "architecture": {
+      "type": "plugin-based-marketplace",
+      "agent_location": "plugins/{agent-name}/agents/{agent-name}.md",
+      "priority": "project > plugin > user",
+      "official_spec": "https://docs.claude.com/en/docs/claude-code/sub-agents"
     }
   }
 }

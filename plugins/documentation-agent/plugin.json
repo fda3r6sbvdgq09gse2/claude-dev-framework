@@ -1,0 +1,27 @@
+{
+  "name": "documentation-agent",
+  "version": "2.0.0",
+  "description": "Technical documentation specialist. Creates comprehensive docs, API references, guides, and maintains documentation quality",
+  "author": "claude-multi-agent-framework",
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  },
+  "license": "MIT",
+  "keywords": [
+    "documentation",
+    "technical-writing",
+    "api-docs",
+    "guides",
+    "markdown"
+  ],
+  "agents": [
+    {
+      "name": "documentation",
+      "source": "./agents/documentation.md",
+      "model": "sonnet",
+      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    }
+  ]
+}

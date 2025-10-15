@@ -1,0 +1,32 @@
+{
+  "name": "testing-agent",
+  "version": "2.0.0",
+  "description": "Test automation and quality assurance specialist. Writes unit tests, integration tests, ensures coverage, and maintains code quality",
+  "author": "claude-multi-agent-framework",
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  },
+  "license": "MIT",
+  "keywords": [
+    "testing",
+    "qa",
+    "quality-assurance",
+    "pytest",
+    "test-automation",
+    "coverage"
+  ],
+  "agents": [
+    {
+      "name": "testing",
+      "source": "./agents/testing.md",
+      "model": "sonnet",
+      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    }
+  ],
+  "dependencies": {
+    "python": "^3.11.0",
+    "pytest": "^8.0.0"
+  }
+}

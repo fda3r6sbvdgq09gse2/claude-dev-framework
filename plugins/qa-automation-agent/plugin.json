@@ -1,6 +1,6 @@
 {
   "name": "qa-automation-agent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "QA automation specialist for UI testing with Playwright, visual regression, and accessibility",
   "author": "claude-multi-agent-framework",
   "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
@@ -22,7 +22,7 @@
   "agents": [
     {
       "name": "qa-automation",
-      "source": "./agent.md",
+      "source": "./agents/qa-automation.md",
       "model": "sonnet",
       "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"],
       "mcpServers": ["playwright", "browser-automation"]

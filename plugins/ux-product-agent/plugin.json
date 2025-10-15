@@ -1,6 +1,6 @@
 {
   "name": "ux-product-agent",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "UX/Product specialist for user feedback coordination, product decisions, and experience optimization",
   "author": "claude-multi-agent-framework",
   "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
@@ -21,7 +21,7 @@
   "agents": [
     {
       "name": "ux-product",
-      "source": "./agent.md",
+      "source": "./agents/ux-product.md",
       "model": "sonnet",
       "tools": ["Read", "Write", "Edit", "Grep", "Glob"]
     }

@@ -22,7 +22,7 @@
   "agents": [
     {
       "name": "devops",
-      "source": "./agent.md",
+      "source": "./agents/devops.md",
       "model": "sonnet",
       "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
     }

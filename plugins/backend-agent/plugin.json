@@ -1,0 +1,31 @@
+{
+  "name": "backend-agent",
+  "version": "2.0.0",
+  "description": "Backend development specialist for APIs, data services, file exports, and backend infrastructure",
+  "author": "claude-multi-agent-framework",
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  },
+  "license": "MIT",
+  "keywords": [
+    "backend",
+    "api",
+    "data-services",
+    "rest-api",
+    "python",
+    "development"
+  ],
+  "agents": [
+    {
+      "name": "backend",
+      "source": "./agents/backend.md",
+      "model": "sonnet",
+      "tools": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    }
+  ],
+  "dependencies": {
+    "python": "^3.11.0"
+  }
+}
