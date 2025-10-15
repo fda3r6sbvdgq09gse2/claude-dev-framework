@@ -415,7 +415,7 @@ See [LICENSE](LICENSE) for full terms.
 
 ## 🙏 Credits
 
-**Built by:** Blackford Industries (internal)
+**Built by:** ORG_NAME _(Change in VARIABLES.yaml)_
 **Extracted from:** book-cataloger project (Sprint 1-6A)
 **Powered by:** Claude Code (Anthropic)
 **Inspired by:** Real-world AI-assisted development

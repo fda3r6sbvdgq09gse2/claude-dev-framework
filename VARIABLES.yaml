@@ -1,0 +1,139 @@
+# Framework Variables - Single Source of Truth
+# Last updated: 2025-10-15
+#
+# IMPORTANT: Change values here ONLY - they propagate to all configs
+# After changing, run: ./scripts/sync-variables.sh (TODO: create this script)
+
+# ═══════════════════════════════════════════════════════════
+# FRAMEWORK IDENTITY
+# ═══════════════════════════════════════════════════════════
+
+framework:
+  name: "ClaudeDevFramework"
+  display_name: "Claude Multi-Agent Development Framework"
+  version: "2.0.0"
+  description: "Organized multi-agent development framework with component-based plugin architecture"
+  license: "MIT"
+
+# ═══════════════════════════════════════════════════════════
+# OWNER / MAINTAINER (Change these to customize)
+# ═══════════════════════════════════════════════════════════
+
+owner:
+  # Public-facing name (used in marketplace.json, README, docs)
+  # ⚠️ CHANGE THIS to your company/organization name
+  name: "ORG_NAME"
+
+  # Contact info (optional - remove if not wanted)
+  email: "contact@example.com"
+
+  # GitHub account
+  github_username: "fda3r6sbvdgq09gse2"
+
+  # Repository info
+  github_repo_url: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+
+  # Organization (optional - for display purposes)
+  organization: "Independent Developer"
+
+# ═══════════════════════════════════════════════════════════
+# MARKETPLACE CONFIGURATION
+# ═══════════════════════════════════════════════════════════
+
+marketplace:
+  # Marketplace identifier (should match marketplace.json)
+  id: "ClaudeDevFramework-Marketplace"
+
+  # GitHub marketplace source
+  github_source: "fda3r6sbvdgq09gse2/claude-dev-framework"
+
+  # Marketplace file location
+  file: ".claude-plugin/marketplace.json"
+
+# ═══════════════════════════════════════════════════════════
+# PLUGIN GROUPS
+# ═══════════════════════════════════════════════════════════
+
+plugins:
+  development_agents:
+    name: "development-agents"
+    category: "development"
+    agents:
+      - backend
+      - frontend
+      - integration
+      - testing
+
+  management_agents:
+    name: "management-agents"
+    category: "management"
+    agents:
+      - ceo
+      - documentation
+      - devops
+
+  quality_agents:
+    name: "quality-agents"
+    category: "quality"
+    agents:
+      - qa-automation
+      - ux-product
+
+  utilities:
+    name: "context-utilities"
+    category: "utilities"
+    description: "Context management and session utilities"
+
+# ═══════════════════════════════════════════════════════════
+# DOCUMENTATION LINKS
+# ═══════════════════════════════════════════════════════════
+
+documentation:
+  homepage: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  readme: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/blob/main/README.md"
+  claude_docs: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/blob/main/CLAUDE.md"
+  changelog: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/blob/main/CHANGELOG.md"
+
+# ═══════════════════════════════════════════════════════════
+# INTERNAL TRACKING (Not public-facing)
+# ═══════════════════════════════════════════════════════════
+
+internal:
+  # Internal project name (not used in public docs)
+  project_code: "cdf-v2"
+
+  # Last major reorganization
+  reorganized_date: "2025-10-15"
+
+  # Framework status
+  status: "locked"  # locked = no breaking changes
+
+  # Related configs
+  related_configs:
+    stakeholders: "config/STAKEHOLDERS.yaml"
+    permissions: "config/permissions/*.json"
+
+# ═══════════════════════════════════════════════════════════
+# USAGE INSTRUCTIONS
+# ═══════════════════════════════════════════════════════════
+
+# To customize this framework for your use:
+#
+# 1. Change owner.name to your preferred name/organization
+# 2. Update owner.email (or remove it)
+# 3. Change owner.github_username to your GitHub username
+# 4. Update owner.github_repo_url to your fork
+# 5. Optionally update owner.organization
+#
+# Then manually update these files with the new values:
+# - .claude-plugin/marketplace.json (owner section)
+# - README.md (Built by section)
+# - CHANGELOG.md (header)
+# - config/STAKEHOLDERS.yaml (organization section)
+# - plugins/*/plugin.json (author fields)
+#
+# TODO: Create sync-variables.sh script to automate this
+
+# ═══════════════════════════════════════════════════════════
+# END OF VARIABLES
+# ═══════════════════════════════════════════════════════════

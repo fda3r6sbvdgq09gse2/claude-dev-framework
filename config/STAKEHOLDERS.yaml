@@ -10,11 +10,12 @@
 # ═══════════════════════════════════════════════════════════
 
 organization:
-  internal_name: "Blackford Industries"  # Not public-facing
-  public_name: "TBD"  # To be determined
-  type: "startup"
+  # ⚠️ CHANGE THESE VALUES - Also update ../VARIABLES.yaml
+  internal_name: "ORG_NAME"  # Not public-facing
+  public_name: "ORG_NAME"  # Public-facing name
+  type: "startup"  # or: company, enterprise, independent
   founded: "2024"
-  stage: "pre-seed"
+  stage: "pre-seed"  # or: seed, series-a, etc.
 
 # ═══════════════════════════════════════════════════════════
 # HUMAN STAKEHOLDERS

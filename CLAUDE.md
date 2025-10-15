@@ -29,6 +29,30 @@ Then install plugins:
 /plugin install management-agents@ClaudeDevFramework-Marketplace
 ```
 
+### Customize for Your Organization
+
+**IMPORTANT**: Replace "ORG_NAME" with your company/organization name!
+
+All branding is controlled from a single file: **`VARIABLES.yaml`**
+
+```yaml
+owner:
+  name: "ORG_NAME"  # ⚠️ CHANGE THIS
+  email: "contact@example.com"
+  github_username: "your-github-username"
+```
+
+After changing `VARIABLES.yaml`, update these files to match:
+- `.claude-plugin/marketplace.json` (owner.name)
+- `README.md` (Built by section)
+- `CHANGELOG.md` (header)
+- `config/STAKEHOLDERS.yaml` (organization section)
+- `plugins/*/plugin.json` (author fields)
+
+See `VARIABLES.yaml` for complete customization options.
+
+---
+
 ### For Framework Developers
 
 1. **GitHub MCP Setup** (Required for automation)
