@@ -1,0 +1,152 @@
+{
+  "agent": "backend",
+  "description": "Backend agent permission rules - API, data services, exports only",
+  "version": "1.0.0",
+
+  "permissions": {
+    "allowed": [
+      {
+        "tool": "Read",
+        "patterns": [
+          "/src/api/**",
+          "/src/core/**",
+          "/src/services/**",
+          "/src/utils/**",
+          "/tests/unit/**",
+          "/tests/integration/**",
+          "/requirements.txt",
+          "/pyproject.toml",
+          "/setup.py",
+          "/.env.example",
+          "/config/**",
+          "/data/**"
+        ],
+        "description": "Read access to backend code, tests, and config"
+      },
+      {
+        "tool": "Write",
+        "patterns": [
+          "/src/api/**",
+          "/src/core/**",
+          "/src/services/**",
+          "/tests/unit/**",
+          "/tests/integration/**"
+        ],
+        "description": "Write access to backend code and tests"
+      },
+      {
+        "tool": "Edit",
+        "patterns": [
+          "/src/api/**",
+          "/src/core/**",
+          "/src/services/**",
+          "/tests/unit/**",
+          "/tests/integration/**"
+        ],
+        "description": "Edit backend code and tests"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "pytest tests/unit/**",
+          "pytest tests/integration/**",
+          "python -m pytest",
+          "pip install*",
+          "python -m pip*",
+          "black src/**",
+          "mypy src/**",
+          "isort src/**",
+          "coverage run*",
+          "coverage report*"
+        ],
+        "description": "Run tests and code quality tools"
+      },
+      {
+        "tool": "Grep",
+        "patterns": ["**"],
+        "description": "Search anywhere in codebase"
+      },
+      {
+        "tool": "Glob",
+        "patterns": ["**"],
+        "description": "Find files anywhere"
+      }
+    ],
+
+    "ask": [
+      {
+        "tool": "Write",
+        "patterns": [
+          "/requirements.txt",
+          "/pyproject.toml",
+          "/setup.py"
+        ],
+        "description": "Ask before modifying dependency files"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "git *",
+          "rm *",
+          "mv *",
+          "docker *",
+          "sudo *"
+        ],
+        "description": "Ask before git operations, deletions, docker, or sudo"
+      }
+    ],
+
+    "deny": [
+      {
+        "tool": "Write",
+        "patterns": [
+          "/src/ui/**",
+          "/.ai/**",
+          "/.claude/**",
+          "/config/permissions/**",
+          "/README.md",
+          "/docs/**"
+        ],
+        "description": "Cannot modify UI, framework config, or high-level docs"
+      },
+      {
+        "tool": "Edit",
+        "patterns": [
+          "/src/ui/**",
+          "/.ai/**",
+          "/.claude/**",
+          "/config/permissions/**"
+        ],
+        "description": "Cannot edit UI or framework config"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "rm -rf /*",
+          "sudo rm*",
+          "> /etc/*",
+          "curl * | bash",
+          "wget * | bash"
+        ],
+        "description": "Prevent dangerous operations"
+      },
+      {
+        "tool": "WebFetch",
+        "patterns": ["*"],
+        "description": "Backend doesn't need web access"
+      }
+    ]
+  },
+
+  "rationale": {
+    "why_restricted": "Backend agent should focus on APIs, data, and services. UI changes are Frontend's responsibility. Framework/docs are CEO's domain.",
+    "security": "Prevents accidental modification of critical framework files. Limits blast radius of errors.",
+    "coordination": "Forces proper agent collaboration - backend can't fix UI issues, must coordinate with Frontend."
+  },
+
+  "escalation": {
+    "if_needs_ui_change": "Request Frontend agent",
+    "if_needs_doc_update": "Request Documentation agent",
+    "if_needs_architecture": "Request CEO agent"
+  }
+}

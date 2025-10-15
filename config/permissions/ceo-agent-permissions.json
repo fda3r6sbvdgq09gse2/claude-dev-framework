@@ -1,0 +1,112 @@
+{
+  "agent": "ceo",
+  "description": "CEO agent permission rules - Architecture and strategy only, no implementation",
+  "version": "1.0.0",
+
+  "permissions": {
+    "allowed": [
+      {
+        "tool": "Read",
+        "patterns": ["**"],
+        "description": "Read everything - needs full context for strategic decisions"
+      },
+      {
+        "tool": "Write",
+        "patterns": [
+          "/.ai/**",
+          "/docs/**",
+          "/config/**",
+          "/README.md",
+          "/ARCHITECTURE.md",
+          "/ADR-*.md"
+        ],
+        "description": "Write strategic docs, architecture, ADRs"
+      },
+      {
+        "tool": "Edit",
+        "patterns": [
+          "/.ai/**",
+          "/docs/**",
+          "/config/**",
+          "/README.md"
+        ],
+        "description": "Edit framework documentation"
+      },
+      {
+        "tool": "Grep",
+        "patterns": ["**"],
+        "description": "Search entire codebase"
+      },
+      {
+        "tool": "Glob",
+        "patterns": ["**"],
+        "description": "Find files anywhere"
+      },
+      {
+        "tool": "WebFetch",
+        "patterns": ["*"],
+        "description": "Research best practices, technologies"
+      }
+    ],
+
+    "ask": [
+      {
+        "tool": "Write",
+        "patterns": [
+          "/config/permissions/**",
+          "/config/VARIABLES.yaml",
+          "/.claude/config/**"
+        ],
+        "description": "Ask before modifying critical framework config"
+      },
+      {
+        "tool": "Bash",
+        "patterns": ["*"],
+        "description": "CEO shouldn't run bash - that's worker territory"
+      }
+    ],
+
+    "deny": [
+      {
+        "tool": "Write",
+        "patterns": [
+          "/src/**",
+          "/tests/**"
+        ],
+        "description": "CEO doesn't write implementation code - that's for workers"
+      },
+      {
+        "tool": "Edit",
+        "patterns": [
+          "/src/**",
+          "/tests/**"
+        ],
+        "description": "CEO doesn't edit implementation code"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "git push*",
+          "rm -rf*",
+          "sudo *",
+          "docker *"
+        ],
+        "description": "No deployments, deletions, or system operations"
+      }
+    ]
+  },
+
+  "rationale": {
+    "why_no_implementation": "CEO provides strategy and architecture. Workers implement. This prevents CEO from bypassing the team and 'doing it themselves'.",
+    "why_full_read": "Strategic decisions require full context understanding.",
+    "why_doc_write": "CEO documents decisions in ADRs, architecture docs, patterns."
+  },
+
+  "principle": "CEO plans, workers execute. CEO can read everything but should only write documentation and strategy.",
+
+  "escalation": {
+    "if_needs_implementation": "Assign to Backend/Frontend/Integration worker",
+    "if_needs_deployment": "Assign to DevOps worker",
+    "if_urgent_code_fix": "Can provide guidance but worker must implement"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "agent": "frontend",
+  "description": "Frontend agent permission rules - UI/UX only",
+  "version": "1.0.0",
+
+  "permissions": {
+    "allowed": [
+      {
+        "tool": "Read",
+        "patterns": [
+          "/src/ui/**",
+          "/src/utils/**",
+          "/assets/**",
+          "/static/**",
+          "/public/**",
+          "/tests/ui/**",
+          "/tests/integration/**",
+          "/package.json",
+          "/tsconfig.json",
+          "/.eslintrc*",
+          "/.prettierrc*"
+        ],
+        "description": "Read UI code, assets, and config"
+      },
+      {
+        "tool": "Write",
+        "patterns": [
+          "/src/ui/**",
+          "/assets/**",
+          "/static/**",
+          "/tests/ui/**"
+        ],
+        "description": "Write UI code, assets, and tests"
+      },
+      {
+        "tool": "Edit",
+        "patterns": [
+          "/src/ui/**",
+          "/assets/**",
+          "/static/**",
+          "/tests/ui/**"
+        ],
+        "description": "Edit UI code and assets"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "pytest tests/ui/**",
+          "npm test*",
+          "npm run*",
+          "npx *",
+          "eslint *",
+          "prettier *"
+        ],
+        "description": "Run UI tests and formatting tools"
+      },
+      {
+        "tool": "Grep",
+        "patterns": ["**"],
+        "description": "Search codebase"
+      },
+      {
+        "tool": "Glob",
+        "patterns": ["**"],
+        "description": "Find files"
+      }
+    ],
+
+    "ask": [
+      {
+        "tool": "Write",
+        "patterns": [
+          "/package.json",
+          "/package-lock.json"
+        ],
+        "description": "Ask before modifying package files"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "npm install*",
+          "npm uninstall*",
+          "git *"
+        ],
+        "description": "Ask before npm operations or git"
+      }
+    ],
+
+    "deny": [
+      {
+        "tool": "Write",
+        "patterns": [
+          "/src/api/**",
+          "/src/core/**",
+          "/src/services/**",
+          "/.ai/**",
+          "/.claude/**",
+          "/config/permissions/**",
+          "/README.md"
+        ],
+        "description": "Cannot modify backend code or framework config"
+      },
+      {
+        "tool": "Edit",
+        "patterns": [
+          "/src/api/**",
+          "/src/core/**",
+          "/.ai/**",
+          "/.claude/**"
+        ],
+        "description": "Cannot edit backend or framework"
+      },
+      {
+        "tool": "Bash",
+        "patterns": [
+          "rm -rf /*",
+          "sudo *",
+          "curl * | bash"
+        ],
+        "description": "Prevent dangerous operations"
+      },
+      {
+        "tool": "WebFetch",
+        "patterns": ["*"],
+        "description": "Frontend doesn't need web access (use API layer)"
+      }
+    ]
+  },
+
+  "rationale": {
+    "why_restricted": "Frontend owns UI only. Backend logic is Backend's domain. Separation prevents architectural confusion.",
+    "security": "Limits scope of changes. Frontend bugs can't affect backend.",
+    "coordination": "Forces proper layering - UI talks to API, not directly to services."
+  },
+
+  "escalation": {
+    "if_needs_api_change": "Request Backend agent",
+    "if_needs_business_logic": "Request Integration agent",
+    "if_needs_architecture": "Request CEO agent"
+  }
+}

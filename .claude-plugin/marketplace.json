@@ -1,0 +1,85 @@
+{
+  "name": "claude-multi-agent-framework",
+  "version": "1.0.0",
+  "owner": {
+    "name": "AI Development Team",
+    "github": "fda3r6sbvdgq09gse2",
+    "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  },
+  "description": "Multi-agent development framework with specialized AI workers for parallel software development",
+  "plugins": [
+    {
+      "name": "backend-agent",
+      "source": "./plugins/backend-agent",
+      "description": "Backend development specialist for APIs, data services, and exports",
+      "category": "development",
+      "tags": ["backend", "api", "data", "exports"],
+      "version": "2.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    },
+    {
+      "name": "frontend-agent",
+      "source": "./plugins/frontend-agent",
+      "description": "Frontend development specialist for UI, UX, and user interactions",
+      "category": "development",
+      "tags": ["frontend", "ui", "ux", "pyqt"],
+      "version": "2.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    },
+    {
+      "name": "integration-agent",
+      "source": "./plugins/integration-agent",
+      "description": "Integration specialist for business logic and workflow coordination",
+      "category": "development",
+      "tags": ["integration", "coordination", "business-logic"],
+      "version": "2.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    },
+    {
+      "name": "testing-agent",
+      "source": "./plugins/testing-agent",
+      "description": "Testing specialist for quality assurance and validation",
+      "category": "testing",
+      "tags": ["testing", "qa", "validation", "pytest"],
+      "version": "1.0.0",
+      "requires": ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+    },
+    {
+      "name": "ceo-agent",
+      "source": "./plugins/ceo-agent",
+      "description": "Strategic architect for framework vision and architecture decisions",
+      "category": "architecture",
+      "tags": ["strategy", "architecture", "planning", "patterns"],
+      "version": "1.0.0",
+      "requires": ["Read", "Write", "Edit", "Grep", "Glob", "WebFetch"]
+    },
+    {
+      "name": "pattern-library",
+      "source": "./plugins/patterns",
+      "description": "Reusable development patterns extracted from real-world projects",
+      "category": "library",
+      "tags": ["patterns", "best-practices", "reusable"],
+      "version": "1.0.0"
+    }
+  ],
+  "metadata": {
+    "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+    "documentation": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/blob/main/README.md",
+    "license": "MIT",
+    "keywords": [
+      "multi-agent",
+      "ai-development",
+      "claude-code",
+      "parallel-development",
+      "git-worktrees",
+      "specialized-agents"
+    ],
+    "extracted_from": "book-cataloger project (Sprint 1-6A)",
+    "proven_metrics": {
+      "sprints_completed": "6A",
+      "patterns_extracted": 23,
+      "token_efficiency": "80% savings",
+      "development_speed": "4x with parallel agents"
+    }
+  }
+}

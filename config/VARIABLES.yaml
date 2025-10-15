@@ -1,0 +1,316 @@
+# Single Source of Truth - Framework Variables
+# Version: 1.0.0
+# Last Updated: 2025-01-15
+#
+# IMPORTANT: This is the ONLY place where these values are defined.
+# All documentation and code MUST reference this file, never hardcode values.
+
+# ═══════════════════════════════════════════════════════════
+# PROJECT METADATA
+# ═══════════════════════════════════════════════════════════
+
+project:
+  name: "claude-dev-framework"
+  display_name: "Claude Multi-Agent Development Framework"
+  version: "1.0.0"
+  status: "beta"
+
+github:
+  owner: "fda3r6sbvdgq09gse2"
+  repository: "claude-dev-framework"
+  url: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+
+marketplace:
+  id: "claude-multi-agent-framework"
+  marketplace_file: ".claude-plugin/marketplace.json"
+
+# ═══════════════════════════════════════════════════════════
+# MODEL CONFIGURATION
+# ═══════════════════════════════════════════════════════════
+
+models:
+  MODEL_001_OPUS:
+    id: "claude-opus-4-1-20250805"
+    name: "Opus 4.1"
+    tier: "flagship"
+    context_window: 500000
+    usage_limit_hours_per_week: [24, 40]
+    cost_multiplier: 5.0
+
+  MODEL_002_SONNET:
+    id: "claude-3-5-sonnet-20241022"
+    name: "Sonnet 3.5"
+    tier: "performance"
+    context_window: 200000
+    usage_limit_hours_per_week: [240, 480]
+    cost_multiplier: 1.0
+
+  MODEL_003_HAIKU:
+    id: "claude-3-5-haiku-20241022"
+    name: "Haiku 3.5"
+    tier: "efficiency"
+    context_window: 200000
+    usage_limit_hours_per_week: "unlimited"
+    cost_multiplier: 0.2
+
+# ═══════════════════════════════════════════════════════════
+# AGENT DEFINITIONS
+# ═══════════════════════════════════════════════════════════
+
+agents:
+  core_team:
+    - id: "backend"
+      name: "Backend Agent"
+      plugin: "backend-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "development"
+
+    - id: "frontend"
+      name: "Frontend Agent"
+      plugin: "frontend-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "development"
+
+    - id: "integration"
+      name: "Integration Agent"
+      plugin: "integration-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "development"
+
+    - id: "testing"
+      name: "Testing Agent"
+      plugin: "testing-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "testing"
+
+    - id: "ceo"
+      name: "CEO Agent"
+      plugin: "ceo-agent"
+      default_model: "MODEL_001_OPUS"
+      fallback_model: "MODEL_002_SONNET"
+      category: "architecture"
+
+  optional_team:
+    - id: "documentation"
+      name: "Documentation Agent"
+      plugin: "documentation-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "documentation"
+
+    - id: "devops"
+      name: "DevOps Agent"
+      plugin: "devops-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "operations"
+
+    - id: "security"
+      name: "Security Agent"
+      plugin: "security-agent"
+      default_model: "MODEL_002_SONNET"
+      category: "security"
+
+# ═══════════════════════════════════════════════════════════
+# REWARD SYSTEM CONFIGURATION
+# ═══════════════════════════════════════════════════════════
+
+rewards:
+  xp_system:
+    enabled_by_default: true
+
+    earning_rates:
+      task_simple: 5
+      task_medium: 15
+      task_complex: 30
+
+      bonus_tests_pass: 10
+      bonus_coverage_90: 15
+      bonus_zero_bugs: 20
+      bonus_pattern_extracted: 20
+
+      milestone_sprint_complete: 50
+      milestone_project_shipped: 100
+      milestone_production: 150
+
+    level_thresholds:
+      level_1: 0
+      level_2: 500
+      level_3: 1500
+      level_4: 3000
+      level_5: 5000
+
+  attributes:
+    enabled_by_default: true
+    scale: [1, 20]
+
+    growth_rates:
+      fast: 0.2        # Attributes 1-10
+      medium: 0.1      # Attributes 11-15
+      slow: 0.05       # Attributes 16-18
+      very_slow: 0.02  # Attributes 19-20
+
+    categories:
+      - "Technical Skills"
+      - "Soft Skills"
+      - "Domain Expertise"
+
+  salary:
+    enabled_by_default: false
+    currency: "USD"
+
+    base_rates:
+      level_1: 300
+      level_2: 500
+      level_3: 800
+      level_4: 1200
+      level_5: 2000
+
+    attribute_multipliers:
+      avg_10_12: 1.0
+      avg_13_15: 1.2
+      avg_16_18: 1.5
+      avg_19_20: 2.0
+
+    bonuses:
+      sprint_complete_on_time: 50
+      sprint_complete_early: 100
+      sprint_zero_bugs: 150
+
+      quality_test_coverage_90: 100
+      quality_test_coverage_95: 200
+      quality_zero_tech_debt: 150
+
+      team_helped_other_agent: 50
+      team_mentored_junior: 100
+      team_pattern_extracted: 75
+      team_documentation: 100
+
+      special_novel_solution: 300
+      special_framework_contribution: 500
+      special_open_source: 400
+
+# ═══════════════════════════════════════════════════════════
+# FILE PATHS
+# ═══════════════════════════════════════════════════════════
+
+paths:
+  global_agents: "~/.claude/agents"
+  global_workers_legacy: "~/.claude-workers"
+  project_agents: ".claude/agents"
+
+  framework_root: "~/dev/claude-dev-framework"
+  plugins: "~/dev/claude-dev-framework/plugins"
+  config: "~/dev/claude-dev-framework/config"
+  docs: "~/dev/claude-dev-framework/docs"
+
+  rewards_global: "~/.claude/rewards"
+  rewards_project: ".claude/rewards"
+
+# ═══════════════════════════════════════════════════════════
+# QUALITY STANDARDS
+# ═══════════════════════════════════════════════════════════
+
+quality:
+  test_coverage_minimum: 85
+  test_coverage_target: 90
+  test_coverage_excellent: 95
+
+  api_timeout_seconds: 5
+  cache_hit_rate_target: 70
+
+  code_style: "black"
+  type_checking: "mypy"
+
+# ═══════════════════════════════════════════════════════════
+# METRICS & TRACKING
+# ═══════════════════════════════════════════════════════════
+
+metrics:
+  proven_from_project: "book-cataloger"
+  sprints_completed: "6A"
+  patterns_extracted: 23
+  token_efficiency_savings: 80
+  development_speed_multiplier: 4
+
+  book_cataloger:
+    sprints: 8
+    duration_weeks: 8
+    team_size: 5
+    lines_of_code: "~15000"
+    test_coverage: 87
+
+# ═══════════════════════════════════════════════════════════
+# WORKTREE CONFIGURATION
+# ═══════════════════════════════════════════════════════════
+
+worktrees:
+  enabled: true
+  base_directory: "~/dev/PROJECT_NAME-worktrees"
+
+  branches:
+    - name: "feature/backend"
+      agent: "backend"
+
+    - name: "feature/frontend"
+      agent: "frontend"
+
+    - name: "feature/integration"
+      agent: "integration"
+
+    - name: "feature/testing"
+      agent: "testing"
+
+# ═══════════════════════════════════════════════════════════
+# PLUGIN VERSIONS
+# ═══════════════════════════════════════════════════════════
+
+plugin_versions:
+  backend_agent: "2.0.0"
+  frontend_agent: "2.0.0"
+  integration_agent: "2.0.0"
+  testing_agent: "1.0.0"
+  ceo_agent: "1.0.0"
+  documentation_agent: "1.0.0"
+  devops_agent: "1.0.0"
+  security_agent: "1.0.0"
+  reward_system: "2.0.0"
+  pattern_library: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════
+# HOW TO REFERENCE THESE VARIABLES
+# ═══════════════════════════════════════════════════════════
+
+# In Documentation (Markdown):
+#   Use: {{var:project.name}}
+#   Example: "Install {{var:project.name}} from {{var:github.url}}"
+#
+# In Code (Python):
+#   from config import get_var
+#   project_name = get_var("project.name")
+#
+# In Templates:
+#   Use Jinja2 syntax: {{ config.project.name }}
+#
+# In Shell Scripts:
+#   source config/variables.sh
+#   echo $PROJECT_NAME
+
+# ═══════════════════════════════════════════════════════════
+# VALIDATION RULES
+# ═══════════════════════════════════════════════════════════
+
+validation:
+  on_commit:
+    - check_no_hardcoded_values
+    - validate_yaml_syntax
+    - verify_all_refs_valid
+
+  hardcoded_detection:
+    patterns_to_flag:
+      - "fda3r6sbvdgq09gse2"  # GitHub username
+      - "claude-dev-framework" # Repo name (unless in VARIABLES.yaml)
+      - specific_xp_values: [5, 15, 30, 50, 100]
+      - specific_salary_values: [300, 500, 800, 1200, 2000]
+
+# ═══════════════════════════════════════════════════════════
+# END OF SINGLE SOURCE OF TRUTH
+# ═══════════════════════════════════════════════════════════
