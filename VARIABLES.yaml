@@ -1,7 +1,9 @@
-# Framework Variables - Single Source of Truth
-# Last updated: 2025-10-15
+# Framework Variables - SINGLE SOURCE OF TRUTH
+# Version: 2.0.1
+# Last Updated: 2025-10-15
 #
-# IMPORTANT: Change values here ONLY - they propagate to all configs
+# CRITICAL: This is the ONLY VARIABLES.yaml file. Change values here ONLY.
+# All documentation, code, and configs MUST reference this file.
 # After changing, run: ./scripts/sync-variables.sh (TODO: create this script)
 
 # ═══════════════════════════════════════════════════════════
@@ -11,8 +13,9 @@
 framework:
   name: "ClaudeDevFramework"
   display_name: "Claude Multi-Agent Development Framework"
-  version: "2.0.0"
-  description: "Organized multi-agent development framework with component-based plugin architecture"
+  version: "2.0.1"
+  status: "locked"  # locked = no breaking changes
+  description: "Multi-agent development framework with standardized {type}-{name} plugin architecture"
   license: "MIT"
 
 # ═══════════════════════════════════════════════════════════
@@ -31,7 +34,8 @@ owner:
   github_username: "fda3r6sbvdgq09gse2"
 
   # Repository info
-  github_repo_url: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  github_repo: "claude-dev-framework"
+  github_url: "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
 
   # Organization (optional - for display purposes)
   organization: "Independent Developer"
@@ -41,7 +45,7 @@ owner:
 # ═══════════════════════════════════════════════════════════
 
 marketplace:
-  # Marketplace identifier (should match marketplace.json)
+  # Marketplace identifier (MUST match marketplace.json name field)
   id: "Claude-Dev-Framework"
 
   # GitHub marketplace source
@@ -51,38 +55,272 @@ marketplace:
   file: ".claude-plugin/marketplace.json"
 
 # ═══════════════════════════════════════════════════════════
-# PLUGIN GROUPS
+# MODEL CONFIGURATION
 # ═══════════════════════════════════════════════════════════
 
-plugins:
-  development_agents:
-    name: "development-agents"
-    category: "development"
-    agents:
-      - backend
-      - frontend
-      - integration
-      - testing
+models:
+  MODEL_001_OPUS:
+    id: "claude-opus-4-1-20250805"
+    name: "Opus 4.1"
+    tier: "flagship"
+    context_window: 500000
+    usage_limit_hours_per_week: [24, 40]
+    cost_multiplier: 5.0
 
-  management_agents:
-    name: "management-agents"
-    category: "management"
-    agents:
-      - ceo
-      - documentation
-      - devops
+  MODEL_002_SONNET:
+    id: "claude-3-5-sonnet-20241022"
+    name: "Sonnet 3.5"
+    tier: "performance"
+    context_window: 200000
+    usage_limit_hours_per_week: [240, 480]
+    cost_multiplier: 1.0
 
-  quality_agents:
-    name: "quality-agents"
-    category: "quality"
-    agents:
-      - qa-automation
-      - ux-product
+  MODEL_003_HAIKU:
+    id: "claude-3-5-haiku-20241022"
+    name: "Haiku 3.5"
+    tier: "efficiency"
+    context_window: 200000
+    usage_limit_hours_per_week: "unlimited"
+    cost_multiplier: 0.2
 
-  utilities:
-    name: "context-utilities"
-    category: "utilities"
-    description: "Context management and session utilities"
+# ═══════════════════════════════════════════════════════════
+# AGENT DEFINITIONS - Maps agent IDs to plugin names
+# ═══════════════════════════════════════════════════════════
+
+agents:
+  core_team:
+    - id: "backend"
+      name: "Backend Agent"
+      plugin: "agent-backend"  # Directory: plugins/agent-backend/
+      default_model: "MODEL_002_SONNET"
+      category: "development"
+
+    - id: "frontend"
+      name: "Frontend Agent"
+      plugin: "agent-frontend"
+      default_model: "MODEL_002_SONNET"
+      category: "development"
+
+    - id: "integration"
+      name: "Integration Agent"
+      plugin: "agent-integration"
+      default_model: "MODEL_002_SONNET"
+      category: "development"
+
+    - id: "testing"
+      name: "Testing Agent"
+      plugin: "agent-testing"
+      default_model: "MODEL_002_SONNET"
+      category: "testing"
+
+    - id: "ceo"
+      name: "CEO Agent"
+      plugin: "agent-ceo"
+      default_model: "MODEL_001_OPUS"
+      fallback_model: "MODEL_002_SONNET"
+      category: "management"
+
+  optional_team:
+    - id: "documentation"
+      name: "Documentation Agent"
+      plugin: "agent-documentation"
+      default_model: "MODEL_002_SONNET"
+      category: "management"
+
+    - id: "devops"
+      name: "DevOps Agent"
+      plugin: "agent-devops"
+      default_model: "MODEL_002_SONNET"
+      category: "management"
+
+    - id: "qa-automation"
+      name: "QA Automation Agent"
+      plugin: "agent-qa-automation"
+      default_model: "MODEL_002_SONNET"
+      category: "quality"
+
+    - id: "ux-product"
+      name: "UX/Product Agent"
+      plugin: "agent-ux-product"
+      default_model: "MODEL_002_SONNET"
+      category: "quality"
+
+# ═══════════════════════════════════════════════════════════
+# PLUGIN VERSIONS - All plugins use {type}-{name} convention
+# ═══════════════════════════════════════════════════════════
+
+plugin_versions:
+  # Development agents
+  agent_backend: "2.0.1"
+  agent_frontend: "2.0.1"
+  agent_integration: "2.0.1"
+  agent_testing: "2.0.1"
+
+  # Management agents
+  agent_ceo: "2.0.1"
+  agent_documentation: "2.0.1"
+  agent_devops: "2.0.1"
+
+  # Quality agents
+  agent_qa_automation: "2.0.1"
+  agent_ux_product: "2.0.1"
+
+  # Utilities
+  command_context_management: "2.0.1"
+  utility_reward_system: "2.0.1"
+
+# ═══════════════════════════════════════════════════════════
+# REWARD SYSTEM CONFIGURATION
+# ═══════════════════════════════════════════════════════════
+
+rewards:
+  xp_system:
+    enabled_by_default: true
+
+    earning_rates:
+      task_simple: 5
+      task_medium: 15
+      task_complex: 30
+
+      bonus_tests_pass: 10
+      bonus_coverage_90: 15
+      bonus_zero_bugs: 20
+      bonus_pattern_extracted: 20
+
+      milestone_sprint_complete: 50
+      milestone_project_shipped: 100
+      milestone_production: 150
+
+    level_thresholds:
+      level_1: 0
+      level_2: 500
+      level_3: 1500
+      level_4: 3000
+      level_5: 5000
+
+  attributes:
+    enabled_by_default: true
+    scale: [1, 20]
+
+    growth_rates:
+      fast: 0.2        # Attributes 1-10
+      medium: 0.1      # Attributes 11-15
+      slow: 0.05       # Attributes 16-18
+      very_slow: 0.02  # Attributes 19-20
+
+    categories:
+      - "Technical Skills"
+      - "Soft Skills"
+      - "Domain Expertise"
+
+  salary:
+    enabled_by_default: false
+    currency: "USD"
+
+    base_rates:
+      level_1: 300
+      level_2: 500
+      level_3: 800
+      level_4: 1200
+      level_5: 2000
+
+    attribute_multipliers:
+      avg_10_12: 1.0
+      avg_13_15: 1.2
+      avg_16_18: 1.5
+      avg_19_20: 2.0
+
+    bonuses:
+      sprint_complete_on_time: 50
+      sprint_complete_early: 100
+      sprint_zero_bugs: 150
+
+      quality_test_coverage_90: 100
+      quality_test_coverage_95: 200
+      quality_zero_tech_debt: 150
+
+      team_helped_other_agent: 50
+      team_mentored_junior: 100
+      team_pattern_extracted: 75
+      team_documentation: 100
+
+      special_novel_solution: 300
+      special_framework_contribution: 500
+      special_open_source: 400
+
+# ═══════════════════════════════════════════════════════════
+# FILE PATHS - Use environment variables where possible
+# ═══════════════════════════════════════════════════════════
+
+paths:
+  # Global paths (user-level)
+  global_agents: "~/.claude/agents"
+  global_workers_legacy: "~/.claude-workers"
+  rewards_global: "~/.claude/rewards"
+
+  # Project paths (relative to project root)
+  project_agents: ".claude/agents"
+  rewards_project: ".claude/rewards"
+
+  # Framework paths (for reference)
+  framework_root: "~/dev/claude-dev-framework"
+  plugins: "~/dev/claude-dev-framework/plugins"
+  config: "~/dev/claude-dev-framework/config"
+  docs: "~/dev/claude-dev-framework/docs"
+
+# ═══════════════════════════════════════════════════════════
+# QUALITY STANDARDS
+# ═══════════════════════════════════════════════════════════
+
+quality:
+  test_coverage_minimum: 85
+  test_coverage_target: 90
+  test_coverage_excellent: 95
+
+  api_timeout_seconds: 5
+  cache_hit_rate_target: 70
+
+  code_style: "black"
+  type_checking: "mypy"
+
+# ═══════════════════════════════════════════════════════════
+# METRICS & TRACKING
+# ═══════════════════════════════════════════════════════════
+
+metrics:
+  proven_from_project: "book-cataloger"
+  sprints_completed: "6A"
+  patterns_extracted: 23
+  token_efficiency_savings: 80
+  development_speed_multiplier: 4
+
+  book_cataloger:
+    sprints: 8
+    duration_weeks: 8
+    team_size: 5
+    lines_of_code: "~15000"
+    test_coverage: 87
+
+# ═══════════════════════════════════════════════════════════
+# WORKTREE CONFIGURATION - For parallel agent development
+# ═══════════════════════════════════════════════════════════
+
+worktrees:
+  enabled: true
+  base_directory: "~/dev/PROJECT_NAME-worktrees"
+
+  branches:
+    - name: "feature/backend"
+      agent: "backend"
+
+    - name: "feature/frontend"
+      agent: "frontend"
+
+    - name: "feature/integration"
+      agent: "integration"
+
+    - name: "feature/testing"
+      agent: "testing"
 
 # ═══════════════════════════════════════════════════════════
 # DOCUMENTATION LINKS
@@ -99,16 +337,10 @@ documentation:
 # ═══════════════════════════════════════════════════════════
 
 internal:
-  # Internal project name (not used in public docs)
   project_code: "cdf-v2"
-
-  # Last major reorganization
   reorganized_date: "2025-10-15"
+  last_major_change: "Plugin naming standardization to {type}-{name}"
 
-  # Framework status
-  status: "locked"  # locked = no breaking changes
-
-  # Related configs
   related_configs:
     stakeholders: "config/STAKEHOLDERS.yaml"
     permissions: "config/permissions/*.json"
@@ -135,5 +367,22 @@ internal:
 # TODO: Create sync-variables.sh script to automate this
 
 # ═══════════════════════════════════════════════════════════
-# END OF VARIABLES
+# VALIDATION RULES
+# ═══════════════════════════════════════════════════════════
+
+validation:
+  on_commit:
+    - check_no_hardcoded_values
+    - validate_yaml_syntax
+    - verify_all_refs_valid
+
+  hardcoded_detection:
+    patterns_to_flag:
+      - "fda3r6sbvdgq09gse2"  # GitHub username
+      - "claude-dev-framework" # Repo name (unless in VARIABLES.yaml)
+      - specific_xp_values: [5, 15, 30, 50, 100]
+      - specific_salary_values: [300, 500, 800, 1200, 2000]
+
+# ═══════════════════════════════════════════════════════════
+# END OF SINGLE SOURCE OF TRUTH
 # ═══════════════════════════════════════════════════════════
