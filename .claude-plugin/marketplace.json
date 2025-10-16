@@ -7,7 +7,6 @@
     "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
     "_note": "\u26a0\ufe0f Change owner.name in VARIABLES.yaml - single source of truth"
   },
-  "description": "Plugin marketplace providing multi-agent development framework with specialized agents and workflow automation",
   "plugins": [
     {
       "name": "agent-backend",
@@ -143,6 +142,7 @@
     }
   ],
   "metadata": {
+    "description": "Plugin marketplace providing multi-agent development framework with specialized agents and workflow automation",
     "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
     "documentation": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework/blob/main/README.md",
     "license": "MIT",
