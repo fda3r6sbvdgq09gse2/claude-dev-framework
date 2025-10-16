@@ -15,11 +15,46 @@
 
 framework:
   name: "ClaudeDevFramework"
+  _used_in:
+    - "[[.claude-plugin/marketplace.json:2]]"
+    - "[[README.md:1]]"
+    - "[[CLAUDE.md:1]]"
+
   display_name: "Claude Multi-Agent Development Framework"
+  _used_in:
+    - "[[README.md:1]]"
+    - "[[CLAUDE.md:1]]"
+
   version: "2.0.1"
+  _used_in:
+    - "[[.claude-plugin/marketplace.json:3]]"
+    - "[[plugins/agent-backend/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-frontend/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-integration/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-testing/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-ceo/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-documentation/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-devops/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-qa-automation/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/agent-ux-product/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/command-context-management/.claude-plugin/plugin.json:3]]"
+    - "[[plugins/utility-reward-system/.claude-plugin/plugin.json:3]]"
+    - "[[README.md:5]]"
+    - "[[CHANGELOG.md:1]]"
+
   status: "locked"  # locked = no breaking changes
+
   description: "Multi-agent development framework with standardized {type}-{name} plugin architecture"
+  _used_in:
+    - "[[.claude-plugin/marketplace.json:145]]"
+    - "[[README.md:10]]"
+
   license: "MIT"
+  _used_in:
+    - "[[.claude-plugin/marketplace.json:148]]"
+    - "[[plugins/*/.claude-plugin/plugin.json:10]]  # All 11 plugins"
+    - "[[README.md:4]]"
+    - "[[LICENSE:1]]"
 
   # Framework author - WHO CREATED THE FRAMEWORK/PLUGINS
   # This is "Claude-Dev-Framework" - the framework itself

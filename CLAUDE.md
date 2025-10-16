@@ -27,7 +27,44 @@ cat VARIABLES.yaml
 2. **NEVER create duplicate variables** - if it exists there, use it
 3. **ALWAYS update VARIABLES.yaml first**, then sync to other files
 4. **READ IT EVERY SESSION** - it's your source of truth
-5. **Variables are knowledge nodes** - they accumulate usage and context over time
+5. **USE THE KNOWLEDGE GRAPH** - see VARIABLE_LINKS.md for bidirectional mapping
+
+---
+
+## 🕸️ **Knowledge Graph System** (Obsidian-Style Linking)
+
+This framework implements **bidirectional variable linking** for complete traceability.
+
+### Quick Reference
+
+```
+VARIABLES.yaml (Master)      ←→     VARIABLE_LINKS.md (Index)      ←→     Consumer Files (Usage)
+```
+
+**Key Files**:
+- **`VARIABLES.yaml`** - Master config with `_used_in` links showing where each variable is used
+- **`VARIABLE_LINKS.md`** - Complete bidirectional index of all variable usage
+- **`.ai/KNOWLEDGE_GRAPH_DESIGN.md`** - Full system architecture
+- **`.ai/KNOWLEDGE_GRAPH_SUMMARY.md`** - Quick reference guide
+
+**Example** - owner.name tracking:
+```yaml
+# In VARIABLES.yaml
+owner:
+  name: "ORG_NAME"
+  _used_in:
+    - "[[.claude-plugin/marketplace.json:5]]"
+    - "[[plugins/agent-backend/.claude-plugin/plugin.json:6]]"
+    # ... (13 more locations)
+```
+
+**Why This Matters**:
+- 🔍 **Traceability**: Know exactly where every variable is used
+- 🔄 **Refactoring**: Change once, sync everywhere
+- ✅ **Validation**: Catch broken references automatically
+- 📚 **Documentation**: Self-documenting variable usage
+
+**Read the full design**: `.ai/KNOWLEDGE_GRAPH_DESIGN.md`
 
 ---
 
