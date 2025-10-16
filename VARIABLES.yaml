@@ -1,14 +1,17 @@
 # Framework Variables - SINGLE SOURCE OF TRUTH
 # Version: 2.0.1
-# Last Updated: 2025-10-15
+# Last Updated: 2025-10-16
 #
 # CRITICAL: This is the ONLY VARIABLES.yaml file. Change values here ONLY.
 # All documentation, code, and configs MUST reference this file.
 # After changing, run: ./scripts/sync-variables.sh (TODO: create this script)
+#
+# Complete reference guide: docs/VARIABLES_REFERENCE.md
 
 # ═══════════════════════════════════════════════════════════
 # FRAMEWORK IDENTITY
 # ═══════════════════════════════════════════════════════════
+# These identify the framework itself (the product you're using)
 
 framework:
   name: "ClaudeDevFramework"
@@ -18,13 +21,31 @@ framework:
   description: "Multi-agent development framework with standardized {type}-{name} plugin architecture"
   license: "MIT"
 
+  # Framework author - WHO CREATED THE FRAMEWORK/PLUGINS
+  # This is "Claude-Dev-Framework" - the framework itself
+  # Used in: plugin.json "author.name" field for ALL framework plugins
+  # DO NOT CHANGE - this identifies plugins as created by this framework
+  author: "Claude-Dev-Framework"
+
+  # Distinction:
+  # - framework.author  = "Claude-Dev-Framework"  (who created the plugins)
+  # - owner.name        = "ORG_NAME"              (who is using/customizing)
+  #
+  # Think of it like:
+  # - Django plugins are authored by "Django"
+  # - React components are authored by "React"
+  # - Claude-Dev-Framework plugins are authored by "Claude-Dev-Framework"
+
 # ═══════════════════════════════════════════════════════════
 # OWNER / MAINTAINER (Change these to customize)
 # ═══════════════════════════════════════════════════════════
+# These identify YOU - the person/organization USING this framework
 
 owner:
-  # Public-facing name (used in marketplace.json, README, docs)
+  # Public-facing name (used in marketplace.json owner.name, README "Built by" section)
+  # This is WHO IS USING/CUSTOMIZING the framework
   # ⚠️ CHANGE THIS to your company/organization name
+  # Example: "Acme Corp", "John Smith", "YourCompany"
   name: "ORG_NAME"
 
   # Contact info (optional - remove if not wanted)

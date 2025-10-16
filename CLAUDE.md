@@ -16,11 +16,18 @@ cat VARIABLES.yaml
 - Reward system parameters
 - File paths and quality standards
 
+**Key Distinction:**
+- `framework.author` = "Claude-Dev-Framework" (who created the plugins)
+- `owner.name` = "ORG_NAME" (who is using the framework)
+
+**Complete Reference:** See [docs/VARIABLES_REFERENCE.md](docs/VARIABLES_REFERENCE.md) for detailed documentation of every variable.
+
 **Rules**:
 1. **NEVER hardcode values** - reference VARIABLES.yaml
 2. **NEVER create duplicate variables** - if it exists there, use it
 3. **ALWAYS update VARIABLES.yaml first**, then sync to other files
 4. **READ IT EVERY SESSION** - it's your source of truth
+5. **Variables are knowledge nodes** - they accumulate usage and context over time
 
 ---
 
