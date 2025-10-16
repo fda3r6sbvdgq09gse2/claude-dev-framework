@@ -56,32 +56,38 @@ framework:
     - "[[README.md:4]]"
     - "[[LICENSE:1]]"
 
-  # Framework author - WHO CREATED THE FRAMEWORK/PLUGINS
-  # This is "Claude-Dev-Framework" - the framework itself
-  # Used in: plugin.json "author.name" field for ALL framework plugins
-  # DO NOT CHANGE - this identifies plugins as created by this framework
-  author: "Claude-Dev-Framework"
-
-  # Distinction:
-  # - framework.author  = "Claude-Dev-Framework"  (who created the plugins)
-  # - owner.name        = "ORG_NAME"              (who is using/customizing)
-  #
-  # Think of it like:
-  # - Django plugins are authored by "Django"
-  # - React components are authored by "React"
-  # - Claude-Dev-Framework plugins are authored by "Claude-Dev-Framework"
-
 # ═══════════════════════════════════════════════════════════
-# OWNER / MAINTAINER (Change these to customize)
+# OWNER / MAINTAINER - SINGLE SOURCE FOR ALL AUTHOR FIELDS
 # ═══════════════════════════════════════════════════════════
-# These identify YOU - the person/organization USING this framework
+#
+# ⚠️ CRITICAL: owner.name is used in ALL plugin.json author.name fields
+#
+# DISTINCTION:
+#   Framework Name (product):  "Claude Multi-Agent Development Framework"
+#   → This is WHAT the software is called (stays constant)
+#
+#   Owner Name (author):  "ORG_NAME"
+#   → This is WHO created/maintains this instance (CUSTOMIZE THIS!)
+#   → Used in: ALL plugin.json author.name fields
+#   → Used in: marketplace.json owner.name field
+#   → Used in: README "Built by" section
+#
+# When you fork/customize this framework:
+#   - Framework name stays: "Claude Multi-Agent Development Framework"
+#   - Owner name changes: "ORG_NAME" → "Your Company Name"
+#   - All 11 plugins will show YOUR name as the author
+#
+# ═══════════════════════════════════════════════════════════
 
 owner:
-  # Public-facing name (used in marketplace.json owner.name, README "Built by" section)
-  # This is WHO IS USING/CUSTOMIZING the framework
-  # ⚠️ CHANGE THIS to your company/organization name
-  # Example: "Acme Corp", "John Smith", "YourCompany"
+  # ⚠️ CHANGE THIS from "ORG_NAME" to your actual name/company!
+  # This value appears in ALL 11 plugin.json files as author.name
+  # Examples: "Acme Corp", "John Smith", "YourCompany", "OpenAI"
   name: "ORG_NAME"
+  _used_in:
+    - "[[.claude-plugin/marketplace.json:5]]  # owner.name"
+    - "[[plugins/*/.claude-plugin/plugin.json:6]]  # author.name in ALL 11 plugins"
+    - "[[README.md:##-built-by]]"
 
   # Contact info (optional - remove if not wanted)
   email: "contact@example.com"
