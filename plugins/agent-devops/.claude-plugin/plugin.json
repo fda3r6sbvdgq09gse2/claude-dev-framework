@@ -2,12 +2,11 @@
   "name": "agent-devops",
   "version": "1.0.0",
   "description": "DevOps specialist for infrastructure, monitoring, CI/CD, and operational excellence",
-  "author": "claude-multi-agent-framework",
-  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  "author": {
+    "name": "claude-multi-agent-framework"
   },
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
   "license": "MIT",
   "keywords": [
     "devops",
@@ -18,55 +17,5 @@
     "prometheus",
     "grafana",
     "opentelemetry"
-  ],
-  "agents": [
-    {
-      "name": "devops",
-      "source": "./agents/devops.md",
-      "model": "sonnet",
-      "tools": [
-        "Read",
-        "Write",
-        "Edit",
-        "Bash",
-        "Grep",
-        "Glob"
-      ]
-    }
-  ],
-  "dependencies": {
-    "docker": "^20.0.0",
-    "docker-compose": "^2.0.0",
-    "python": "^3.11.0"
-  },
-  "optionalDependencies": {
-    "terraform": "^1.0.0",
-    "kubectl": "^1.28.0"
-  },
-  "configuration": {
-    "monitoring": {
-      "enabled": true,
-      "stack": "prometheus-grafana-otel",
-      "port_prometheus": 9090,
-      "port_grafana": 3000,
-      "port_otel": 4317
-    },
-    "context_optimization": {
-      "enable_warnings": true,
-      "threshold": 0.8,
-      "auto_cleanup": false
-    },
-    "cost_tracking": {
-      "enabled": true,
-      "budget_alerts": true,
-      "daily_limit": null
-    }
-  },
-  "files": [
-    "agent.md",
-    "plugin.json",
-    "README.md"
-  ],
-  "installHook": "scripts/install-devops.sh",
-  "healthCheck": "scripts/health-check.sh"
+  ]
 }

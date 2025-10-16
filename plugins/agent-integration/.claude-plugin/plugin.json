@@ -2,12 +2,11 @@
   "name": "agent-integration",
   "version": "2.0.0",
   "description": "System integration and workflow specialist. Connects components, orchestrates workflows, and ensures seamless system integration",
-  "author": "claude-multi-agent-framework",
-  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  "author": {
+    "name": "claude-multi-agent-framework"
   },
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
   "license": "MIT",
   "keywords": [
     "integration",
@@ -15,23 +14,5 @@
     "orchestration",
     "api-integration",
     "system-coordination"
-  ],
-  "agents": [
-    {
-      "name": "integration",
-      "source": "./agents/integration.md",
-      "model": "sonnet",
-      "tools": [
-        "Read",
-        "Write",
-        "Edit",
-        "Bash",
-        "Grep",
-        "Glob"
-      ]
-    }
-  ],
-  "dependencies": {
-    "python": "^3.11.0"
-  }
+  ]
 }

@@ -2,8 +2,9 @@
   "name": "command-context-management",
   "version": "1.0.0",
   "description": "Context persistence and session management for graceful shutdown and easy resume",
-  "author": "ORG_NAME",
-  "_note": "Change author in ../../../VARIABLES.yaml",
+  "author": {
+    "name": "ORG_NAME"
+  },
   "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
   "license": "MIT",
   "keywords": [
@@ -12,42 +13,5 @@
     "resume",
     "persistence",
     "hard-reset-recovery"
-  ],
-  "commands": [
-    {
-      "name": "save-session",
-      "source": "./commands/save-session.md",
-      "description": "Save current session context for easy resume after hard reset or interruption"
-    },
-    {
-      "name": "resume-session",
-      "source": "./commands/resume-session.md",
-      "description": "Resume from last saved session after hard reset or interruption"
-    }
-  ],
-  "scripts": {
-    "save": "./scripts/save_context.sh",
-    "resume": "./scripts/resume_context.sh"
-  },
-  "configuration": {
-    "auto_save_on_shutdown": true,
-    "session_history_limit": 10,
-    "context_directory": ".ai/context"
-  },
-  "hooks": {
-    "pre_shutdown": {
-      "command": "./scripts/save_context.sh",
-      "description": "Auto-save session context before Claude Code exits"
-    }
-  },
-  "requires": {
-    "git": true,
-    "bash": true
-  },
-  "files": [
-    "commands/",
-    "scripts/",
-    "plugin.json",
-    "README.md"
   ]
 }

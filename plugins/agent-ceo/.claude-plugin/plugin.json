@@ -2,12 +2,11 @@
   "name": "agent-ceo",
   "version": "2.0.0",
   "description": "Sprint planning and coordination specialist. Orchestrates multi-agent development, breaks down tasks, and manages sprint workflows",
-  "author": "claude-multi-agent-framework",
-  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  "author": {
+    "name": "claude-multi-agent-framework"
   },
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
   "license": "MIT",
   "keywords": [
     "sprint-planning",
@@ -16,20 +15,5 @@
     "task-breakdown",
     "multi-agent",
     "orchestration"
-  ],
-  "agents": [
-    {
-      "name": "ceo",
-      "source": "./agents/ceo.md",
-      "model": "opus",
-      "tools": [
-        "Read",
-        "Write",
-        "Edit",
-        "Bash",
-        "Grep",
-        "Glob"
-      ]
-    }
   ]
 }

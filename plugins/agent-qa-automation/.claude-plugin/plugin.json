@@ -2,12 +2,11 @@
   "name": "agent-qa-automation",
   "version": "2.0.0",
   "description": "QA automation specialist for UI testing with Playwright, visual regression, and accessibility",
-  "author": "claude-multi-agent-framework",
-  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  "author": {
+    "name": "claude-multi-agent-framework"
   },
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
   "license": "MIT",
   "keywords": [
     "qa",
@@ -18,61 +17,5 @@
     "visual-regression",
     "accessibility",
     "mcp"
-  ],
-  "agents": [
-    {
-      "name": "qa-automation",
-      "source": "./agents/qa-automation.md",
-      "model": "sonnet",
-      "tools": [
-        "Read",
-        "Write",
-        "Edit",
-        "Bash",
-        "Grep",
-        "Glob"
-      ],
-      "mcpServers": [
-        "playwright",
-        "browser-automation"
-      ]
-    }
-  ],
-  "dependencies": {
-    "python": "^3.11.0",
-    "playwright": "^1.40.0"
-  },
-  "optionalDependencies": {
-    "playwright-python": "^1.40.0",
-    "@playwright/test": "^1.40.0",
-    "axe-playwright": "^1.2.0"
-  },
-  "mcpServers": {
-    "playwright": {
-      "required": true,
-      "description": "Playwright MCP server for browser automation",
-      "install": "https://github.com/microsoft/playwright-mcp"
-    }
-  },
-  "configuration": {
-    "test_types": [
-      "e2e",
-      "visual",
-      "accessibility",
-      "performance"
-    ],
-    "browsers": [
-      "chromium",
-      "firefox",
-      "webkit"
-    ],
-    "mobile_testing": true,
-    "visual_regression": true,
-    "accessibility_audits": true
-  },
-  "files": [
-    "agent.md",
-    "plugin.json",
-    "README.md"
   ]
 }

@@ -2,12 +2,11 @@
   "name": "agent-ux-product",
   "version": "2.0.0",
   "description": "UX/Product specialist for user feedback coordination, product decisions, and experience optimization",
-  "author": "claude-multi-agent-framework",
-  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework"
+  "author": {
+    "name": "claude-multi-agent-framework"
   },
+  "homepage": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
+  "repository": "https://github.com/fda3r6sbvdgq09gse2/claude-dev-framework",
   "license": "MIT",
   "keywords": [
     "ux",
@@ -17,49 +16,5 @@
     "product-management",
     "jam-dev",
     "usability"
-  ],
-  "agents": [
-    {
-      "name": "ux-product",
-      "source": "./agents/ux-product.md",
-      "model": "sonnet",
-      "tools": [
-        "Read",
-        "Write",
-        "Edit",
-        "Grep",
-        "Glob"
-      ]
-    }
-  ],
-  "dependencies": {},
-  "optionalDependencies": {
-    "jam-dev": "^1.0.0"
-  },
-  "integrations": {
-    "jam-dev": {
-      "description": "One-click bug reporting with auto-capture",
-      "url": "https://jam.dev/",
-      "setup": "https://jam.dev/docs/getting-started"
-    },
-    "analytics": {
-      "options": [
-        "Google Analytics",
-        "Mixpanel",
-        "PostHog"
-      ],
-      "purpose": "Usage analytics for UX insights"
-    }
-  },
-  "configuration": {
-    "feedback_management": true,
-    "user_research": true,
-    "bug_triage": true,
-    "product_prioritization": true
-  },
-  "files": [
-    "agent.md",
-    "plugin.json",
-    "README.md"
   ]
 }
