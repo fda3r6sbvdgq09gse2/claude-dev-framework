@@ -1,6 +1,29 @@
 # CLAUDE.md - Claude Multi-Agent Development Framework
 *AI-Assisted Development Framework Documentation*
 
+## ⚠️ **CRITICAL: VARIABLES.yaml is the SINGLE SOURCE OF TRUTH**
+
+**BEFORE doing ANYTHING**, read the master configuration:
+```bash
+cat VARIABLES.yaml
+```
+
+**ALL values are defined in `VARIABLES.yaml`**:
+- Framework identity, version, status
+- Owner/maintainer information
+- Plugin names, versions, categories
+- Agent configurations and models
+- Reward system parameters
+- File paths and quality standards
+
+**Rules**:
+1. **NEVER hardcode values** - reference VARIABLES.yaml
+2. **NEVER create duplicate variables** - if it exists there, use it
+3. **ALWAYS update VARIABLES.yaml first**, then sync to other files
+4. **READ IT EVERY SESSION** - it's your source of truth
+
+---
+
 ## 🚀 **START HERE** - Framework Setup
 
 **CRITICAL**: This is a locked framework repository. Changes should be carefully validated.
